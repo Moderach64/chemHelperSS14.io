@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>SS14 · Химия · Справочник</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Химия <span>СС14</span></h1>
+  <div class="credits">Для новичков, желающих играть на <b>GOOB-сборке</b> за химика и хотя-бы минимально одуплять, что делать.</div>
+  <div class="authors-wrap"><div class="credits authors"><b>Идея и обучение ИИ</b> — Permovec <span class="sep">·</span> <b>Дизайн, расчёты и прочее</b> — DeepSeek + Claude</div></div>
+  <div class="warn-joke">Так же, пока вы читаете этот текст, вас уже взломали, в случае если в вас течёт кровь Войда, или Мейна, или любого иного НЕ-корвакс сервера, или же в случае, если вы ФУРИ: ваш компьютер взорвётся пердёжной бомбой и засыпет вас блёсками, я предупредил. <span class="em">⚗💥✨</span></div>
+
+  <div class="topbar">
+    <span class="chip"><b>Мензурка 100u</b> греется</span>
+    <span class="chip"><b>Кувшин 200u</b> не греется</span>
+    <span class="chip"><b>Клики</b> 1/5/15/20/30/50/100</span>
+    <span class="chip">25u=20+5 · 10u=5+5 · 45u=30+15 · 65u=50+15</span>
+    <span class="chip"><span style="color:#ffb84d;font-weight:800">⟳</span> — компонент с запасом</span>
+  </div>
+
+  <div class="toolbar">
+    <div class="mode" role="group" aria-label="Оформление">
+      <span class="mode-label">Оформление:</span>
+      <button type="button" id="modeStd" class="active" aria-pressed="true">Стандартное</button>
+      <button type="button" id="modeExp" aria-pressed="false">Экспериментальное</button>
+    </div>
+    <button type="button" id="collapseAll">Свернуть все</button>
+    <button type="button" id="expandAll">Развернуть все</button>
+    <button type="button" id="showHidden" disabled>Показать скрытые (<span id="hiddenTotal">0</span>)</button>
+    <button type="button" class="cl-open" data-open-changelog>Журнал изменений · v2.0</button>
+    <span class="tb-hint">клик по заголовку категории — свернуть/развернуть · ✕ на рецепте — скрыть до обновления страницы</span>
+  </div>
+
+  <div class="palette-block">
+    <div class="sect">Палитра реагентов</div>
+    <div class="palette">
+      <div class="pc"><span class="ch" style="background:#cccccc"></span><span class="r-h">Водород</span><span class="meta">cccccc</span></div>
+      <div class="pc"><span class="ch" style="background:#c4f5ff"></span><span class="r-o">Кислород</span><span class="meta">c4f5ff</span></div>
+      <div class="pc"><span class="ch" style="background:#FFFACD"></span><span class="r-s">Сера</span><span class="meta">FFFACD</span></div>
+      <div class="pc"><span class="ch" style="background:#9a9a9a"></span><span class="r-c">Углерод</span><span class="meta">9a9a9a</span></div>
+      <div class="pc"><span class="ch" style="background:#a7b3d6"></span><span class="r-na">Натрий</span><span class="meta">a7b3d6</span></div>
+      <div class="pc"><span class="ch" style="background:#a2ff00"></span><span class="r-cl">Хлор</span><span class="meta">a2ff00</span></div>
+      <div class="pc"><span class="ch" style="background:#BA85CC"></span><span class="r-f">Фтор</span><span class="meta">BA85CC</span></div>
+      <div class="pc"><span class="ch" style="background:#848789"></span><span class="r-k">Калий</span><span class="meta">848789</span></div>
+      <div class="pc"><span class="ch" style="background:#c97bdc"></span><span class="r-pl">Плазма</span><span class="meta">c97bdc</span></div>
+      <div class="pc"><span class="ch" style="background:#c58a4a"></span><span class="r-oil">Масло</span><span class="meta">c58a4a</span></div>
+      <div class="pc"><span class="ch" style="background:#E7EA91"></span><span class="r-ph">Фенол</span><span class="meta">E7EA91</span></div>
+      <div class="pc"><span class="ch" style="background:#9cb8e8"></span><span class="r-n">Азот</span><span class="meta">9cb8e8</span></div>
+      <div class="pc"><span class="ch" style="background:#ffcc66"></span><span class="r-eph">Эфедрин</span><span class="meta">ffcc66</span></div>
+      <div class="pc"><span class="ch" style="background:#4dd0e1"></span><span class="r-meth">Метамфетамин</span><span class="meta">4dd0e1</span></div>
+      <div class="pc"><span class="ch" style="background:#88ffcc"></span><span class="r-aran">Аранесп</span><span class="meta">88ffcc</span></div>
+      <div class="pc"><span class="ch" style="background:#a8d8ff"></span><span class="r-cry">Крианобаламин</span><span class="meta">a8d8ff</span></div>
+      <div class="pc"><span class="ch" style="background:#ff3333"></span><span class="r-clf">CLF3</span><span class="meta">ff3333</span></div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА К ==================== -->
+  <div class="zone" data-zone="K" style="--za:#2bff88">
+    <div class="zone-head"><span class="zone-tag">К</span><span class="zone-title">Критически важные</span><span class="zone-sub">Пентеновая → Дексалин+ → Артипластины → Оксандролон → Салициловая</span></div>
+    <div class="grid">
+
+      <div class="card" style="--acc:#b77bff" data-id="К1">
+        <div class="card-head"><div class="num">К1</div><div class="card-title">Пентеновая кислота</div><div class="card-out">100u/менз.<br><b>4 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Серная кислота</b> <span class="v">30u</span> = Водород 10 + Кислород 20 + Сера 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Политриновая кислота</b> <span class="v">90u</span> = Серная кислота 30 + Калий 30 + Плазма 30</div>
+        <div class="p"><b>Йодистый калий</b> <span class="v">100u</span> = Йод 50 + Калий 50 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Масло</b> <span class="v">90u</span> = Сварочное топливо 30 + Водород 30 + Углерод 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Аммиак</b> <span class="v">30u</span> = Азот 10 + Водород 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Cyanide</b> <span class="v">90u</span> = Масло 30 + Аммиак 30 + Кислород 30</div>
+        <div class="p"><b>Галоперидол</b> <span class="v">100u</span> = Масло 20 + Йодистый калий 20 + Алюминий 20 + Хлор 20 + Фтор 20 <span class="t">(&lt;370K)</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Политриновая</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Йодистый калий</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Галоперидол</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s"><span class="n">4</span><div class="txt"><b>Cyanide</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">0.25 ед/сек · выводит 3u/тик всех в-в · лечит 1 яд и 1 радиацию за тик · 90% защита от радиации 8 сек/ед</div>
+          <div class="ds">Доза: <b>5–10u</b></div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#39e6ff" data-id="К2">
+        <div class="card-head"><div class="num">К2</div><div class="card-title">Дексалин+</div><div class="card-out">90u/менз.<br><b>4 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Дексалин</b> <span class="v">30u</span> = Плазма 5 (кат.) + Кислород 20</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s hot"><span class="n">1</span><div class="txt"><b>Дексалин</b> <span class="v">30u</span></div></div>
+        <div class="s hot"><span class="n">2</span><div class="txt"><b>Железо</b> <span class="v">30u</span></div></div>
+        <div class="s hot"><span class="n">3</span><div class="txt"><b>Углерод</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">360u</span></div></div>
+        <div class="sect">Кувшинный синтез 360u</div>
+        <div class="s"><span class="n">T</span><div class="txt">2 кувшина: Кислород 40u + Углерод 60u + Железо 60u + 1 Плазма → в ХимМастер</div></div>
+        <div class="res">
+          <div class="ef">Лечит 7 удушья + 6 кровопотери за ед. · удаляет 3u Heartbreaker-токсина/тик</div>
+          <div class="ds">Доза: <b>10–15u</b> · передоз 25u</div>
+          <div class="joke">Простите, я не знаю, как делать ацетон для Тируэмола.</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#2bff88" data-id="К3">
+        <div class="card-head"><div class="num">К3</div><div class="card-title">Артипластины</div><div class="card-out">60u/менз.<br><b>6 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Физраствор</b> <span class="v">100u</span> = Вода 80 + Соль 20 (Натрий 10 + Хлор 10, <span class="t">&gt;370K</span>) <span class="rsv">⟳</span></div>
+        <div class="p"><b>Инапровалин</b> <span class="v">30u</span> = Кислород 10 + Сахар 10 + Углерод 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Серная кислота</b> <span class="v">30u</span> = Водород 10 + Кислород 20 + Сера 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Транексамовая кислота</b> <span class="v">90u</span> = Инапровалин 30 + Серная 30 + Сахар 30 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s hot"><span class="n">A</span><div class="txt"><b>Физраствор</b> <span class="v">15u</span> + <b>Транексамовая</b> <span class="v">10u</span> (5+5) + Железо <span class="v">5u</span> + Медь <span class="v">5u</span></div></div>
+        <div class="s hot"><span class="n">H</span><div class="txt"><span class="t">Нагреть &gt;310K</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 6 → <span class="v">360u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит 10 кровопотери за ед., уменьшает кровотечение, восстанавливает кровь.</div>
+          <div class="ds">Доза: <b>10u</b> · передоз 11u</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ff5c6c" data-id="К4">
+        <div class="card-head"><div class="num">К4</div><div class="card-title">Оксандролон</div><div class="card-out">100u/менз.<br><b>4 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Соль</b> <span class="v">20u</span> = Натрий 10 + Хлор 10 <span class="t">(&gt;370K)</span></div>
+        <div class="p"><b>Аммиак</b> <span class="v">20u</span> = Водород 15 + Азот 5 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Карбонат натрия</b> <span class="v">80u</span> = Соль 20 + Аммиак 20 + Кислород 20 + Углерод 20</div>
+        <div class="p"><b>Дермалин</b> <span class="v">90u</span> = Кремний 15 + Углерод 15 + Кислород 30 + Фосфор 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Фенол</b> <span class="v">80u</span> = Водород 60 + Кислород 20 + Углерод 40 <span class="t">(&gt;310K)</span> <span class="rsv">⟳</span></div>
+        <div class="p"><b>Ферсилицит</b> <span class="v">40u</span> = Железо 20 + Кремний 20 <span class="t">(&gt;310K)</span></div>
+        <div class="p"><b>Лепоразин</b> <span class="v">80u</span> = Плазма 5 (кат.) + Медь 40 + Ферсилицит 40</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s hot"><span class="n">1</span><div class="txt"><b>Карбонат</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">2</span><div class="txt"><b>Дермалин</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">3</span><div class="txt"><b>Фенол</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">4</span><div class="txt"><b>Лепоразин</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">5</span><div class="txt"><span class="t">Нагреть &gt;310K</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит ожоги: 6 термич./6 обмор./4 электр./4 кислотн. за ед.; при ≥25 ед. наносит 6 ожогов.</div>
+          <div class="ds">Доза: <b>10–15u</b></div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ffb84d" data-id="К5">
+        <div class="card-head"><div class="num">К5</div><div class="card-title">Салициловая кислота</div><div class="card-out">100u/менз.<br><b>4 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Серная кислота</b> <span class="v">30u</span> = Водород 10 + Кислород 20 + Сера 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Инапровалин</b> <span class="v">30u</span> = Кислород 10 + Сахар 10 + Углерод 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Транексамовая кислота</b> <span class="v">90u</span> = Инапровалин 30 + Серная 30 + Сахар 30</div>
+        <div class="p"><b>Фторсерная кислота</b> <span class="v">80u</span> = Водород 20 + Калий 20 + Фтор 20 + Серная 20</div>
+        <div class="p"><b>Гидроксид</b> <span class="v">50u</span> = Кислород 25 + Водород 25 <span class="t">(&gt;310K)</span></div>
+        <div class="p"><b>Гидроксид натрия</b> <span class="v">100u</span> = Гидроксид 50 + Натрий 50</div>
+        <div class="p"><b>Бикаридин</b> <span class="v">90u</span> = Инапровалин 45 + Углерод 45</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s hot"><span class="n">1</span><div class="txt"><b>Транексамовая</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s hot"><span class="n">2</span><div class="txt"><b>Фторсерная</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s hot"><span class="n">3</span><div class="txt"><b>Гидроксид натрия</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s hot"><span class="n">4</span><div class="txt"><b>Бикаридин</b> <span class="v">25u</span> <span class="clk">(20+5)</span></div></div>
+        <div class="s hot"><span class="n">5</span><div class="txt"><span class="t">Нагреть &gt;370K</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит 6 ударов/разрезов/уколов за ед. при ≥25 механ. урона (0,67 при меньшем) · при ≥25u в крови наносит 2 урона за ед.</div>
+          <div class="ds">Доза: <b>20u</b> · передоз 25u</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="К1" style="--fc:#b77bff">
+        <div class="fh"><span class="fn">Пентеновая кислота</span><span class="fv">100u · ×4 = 400u</span></div>
+        <div class="feq"><span class="r-pol">Политриновая</span><span class="famt">25</span> + <span class="r-ki">Йодистый калий</span><span class="famt">25</span> + <span class="r-halo">Галоперидол</span><span class="famt">25</span> + <span class="r-cy">Cyanide</span><span class="famt">25</span> = <b>100u</b></div>
+        <div class="fs"><span class="r-so4">Серная</span> 30=<span class="r-h">Водород</span>10+<span class="r-o">Кислород</span>20+<span class="r-s">Сера</span>10 <span class="sep">·</span> <span class="r-pol">Политриновая</span> 90=<span class="r-so4">Серная</span>30+<span class="r-k">Калий</span>30+<span class="r-pl">Плазма</span>30 <span class="sep">·</span> <span class="r-ki">KI</span> 100=<span class="r-io">Йод</span>50+<span class="r-k">Калий</span>50 <span class="sep">·</span> <span class="r-oil">Масло</span> 90=<span class="r-fuel">Свароч.</span>30+<span class="r-h">Водород</span>30+<span class="r-c">Углерод</span>30 <span class="sep">·</span> <span class="r-am">Аммиак</span> 30=<span class="r-n">Азот</span>10+<span class="r-h">Водород</span>30 <span class="sep">·</span> <span class="r-cy">Cyanide</span> 90=<span class="r-oil">Масло</span>30+<span class="r-am">Аммиак</span>30+<span class="r-o">Кислород</span>30 <span class="sep">·</span> <span class="r-halo">Галоперидол</span> 100=<span class="r-oil">Масло</span>20+<span class="r-ki">KI</span>20+<span class="r-al">Алюминий</span>20+<span class="r-cl">Хлор</span>20+<span class="r-f">Фтор</span>20 <span style="color:#ffb84d">&lt;370K</span></div>
+      </div>
+      <div class="fcard" data-id="К2" style="--fc:#39e6ff">
+        <div class="fh"><span class="fn">Дексалин+</span><span class="fv">90u · ×4 = 360u</span></div>
+        <div class="feq"><span class="r-dex">Дексалин</span><span class="famt">30</span> + <span class="r-fe">Железо</span><span class="famt">30</span> + <span class="r-c">Углерод</span><span class="famt">30</span> = <b>90u</b></div>
+        <div class="fs"><span class="r-dex">Дексалин</span> 30=<span class="r-pl">Плазма</span>5(кат.)+<span class="r-o">Кислород</span>20 <span class="sep">·</span> Кувшин: <span class="r-o">Кислород</span>40+<span class="r-c">Углерод</span>60+<span class="r-fe">Железо</span>60+1<span class="r-pl">Плазма</span> → <b>360u</b></div>
+      </div>
+      <div class="fcard" data-id="К3" style="--fc:#2bff88">
+        <div class="fh"><span class="fn">Артипластины</span><span class="fv">60u · ×6 = 360u</span></div>
+        <div class="feq"><span class="r-fiz">Физраствор</span><span class="famt">15</span> + <span class="r-tra">Транексамовая</span><span class="famt">10</span> + <span class="r-fe">Железо</span><span class="famt">5</span> + <span class="r-cu">Медь</span><span class="famt">5</span> = <b>60u</b> <span style="color:#ffb84d">&gt;310K</span></div>
+        <div class="fs"><span class="r-fiz">Физраствор</span> 100=<span class="r-w">Вода</span>80+<span class="r-sal">Соль</span>20 (<span class="r-na">Натрий</span>10+<span class="r-cl">Хлор</span>10, &gt;370K) <span class="sep">·</span> <span class="r-tra">Транексамовая</span> 90=<span class="r-ina">Инапровалин</span>30+<span class="r-so4">Серная</span>30+<span class="r-sg">Сахар</span>30 <span class="sep">·</span> <span class="r-ina">Инапровалин</span> 30=<span class="r-o">Кислород</span>10+<span class="r-sg">Сахар</span>10+<span class="r-c">Углерод</span>10</div>
+      </div>
+      <div class="fcard" data-id="К4" style="--fc:#ff5c6c">
+        <div class="fh"><span class="fn">Оксандролон</span><span class="fv">100u · ×4 = 400u</span></div>
+        <div class="feq"><span class="r-car">Карбонат</span><span class="famt">25</span> + <span class="r-der">Дермалин</span><span class="famt">25</span> + <span class="r-fen">Фенол</span><span class="famt">25</span> + <span class="r-lep">Лепоразин</span><span class="famt">25</span> = <b>100u</b> <span style="color:#ffb84d">&gt;310K</span></div>
+        <div class="fs"><span class="r-car">Карбонат</span> 80=<span class="r-sal">Соль</span>20+<span class="r-am">Аммиак</span>20+<span class="r-o">Кислород</span>20+<span class="r-c">Углерод</span>20 <span class="sep">·</span> <span class="r-der">Дермалин</span> 90=<span class="r-si">Кремний</span>15+<span class="r-c">Углерод</span>15+<span class="r-o">Кислород</span>30+<span class="r-p">Фосфор</span>30 <span class="sep">·</span> <span class="r-fen">Фенол</span> 80=<span class="r-h">Водород</span>60+<span class="r-o">Кислород</span>20+<span class="r-c">Углерод</span>40 <span class="sep">·</span> <span class="r-lep">Лепоразин</span> 80=<span class="r-pl">Плазма</span>5+<span class="r-cu">Медь</span>40+<span class="r-fer">Ферсилицит</span>40</div>
+      </div>
+      <div class="fcard" data-id="К5" style="--fc:#ffb84d">
+        <div class="fh"><span class="fn">Салициловая кислота</span><span class="fv">100u · ×4 = 400u</span></div>
+        <div class="feq"><span class="r-tra">Транексамовая</span><span class="famt">25</span> + <span class="r-fsa">Фторсерная</span><span class="famt">25</span> + <span class="r-naoh">Гидроксид натрия</span><span class="famt">25</span> + <span class="r-bic">Бикаридин</span><span class="famt">25</span> = <b>100u</b> <span style="color:#ffb84d">&gt;370K</span></div>
+        <div class="fs"><span class="r-tra">Транексамовая</span> 90=<span class="r-ina">Инапровалин</span>30+<span class="r-so4">Серная</span>30+<span class="r-sg">Сахар</span>30 <span class="sep">·</span> <span class="r-fsa">Фторсерная</span> 80=<span class="r-h">Водород</span>20+<span class="r-k">Калий</span>20+<span class="r-f">Фтор</span>20+<span class="r-so4">Серная</span>20 <span class="sep">·</span> <span class="r-naoh">Гидроксид натрия</span> 100=<span class="r-gid">Гидроксид</span>50 (<span class="r-o">Кислород</span>25+<span class="r-h">Водород</span>25, &gt;310K)+<span class="r-na">Натрий</span>50 <span class="sep">·</span> <span class="r-bic">Бикаридин</span> 90=<span class="r-ina">Инапровалин</span>45+<span class="r-c">Углерод</span>45 <span class="sep">·</span> <span class="r-so4">Серная</span> 30=<span class="r-h">Водород</span>10+<span class="r-o">Кислород</span>20+<span class="r-s">Сера</span>10 <span class="sep">·</span> <span class="r-ina">Инапровалин</span> 30=<span class="r-o">Кислород</span>10+<span class="r-sg">Сахар</span>10+<span class="r-c">Углерод</span>10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА Б ==================== -->
+  <div class="zone" data-zone="B" style="--za:#ff5c6c">
+    <div class="zone-head"><span class="zone-tag">Б</span><span class="zone-title">Бой</span><span class="zone-sub">боевые, стимуляторы, психиатрические</span></div>
+    <div class="grid">
+
+      <div class="card" style="--acc:#ff66cc" data-id="Б1">
+        <div class="card-head"><div class="num">Б1</div><div class="card-title">Пакс</div><div class="card-out">90u/менз.<br><b>4 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Синаптизин</b> <span class="v">90u</span> = Литий 30 + Сахар 30 + Вода 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Диловен</b> <span class="v">90u</span> = Азот 30 + Калий 30 + Кремний 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Токсин майндбрейкер</b> <span class="v">90u</span> = Водород 30 + Кремний 30 + Диловен 30 <span class="t">(&gt;370K)</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Вода</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Синаптизин</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Токсин майндбрейкер</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">360u</span></div></div>
+        <div class="res">
+          <div class="ef">Пацифист (не может наносить урон живым) на 4 сек/ед</div>
+          <div class="ds">Доза: <b>10–22u</b> (40–90 сек пацифизма)</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ffcc66" data-id="Б2">
+        <div class="card-head"><div class="num">Б2</div><div class="card-title">Эфедрин</div><div class="card-out">100u/менз.<br><b>4 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Масло</b> <span class="v">90u</span> = Топливо 30 + Водород 30 + Углерод 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Диэтиламин</b> <span class="v">80u</span> = Водород 30 + Азот 10 + Этанол 40 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Масло</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Диэтиламин</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Водород</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s"><span class="n">4</span><div class="txt"><b>Сахар</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Скорость ×1.25 (4 сек/ед) · −1 сек оглушения/нокаута за сек · избавляет от нарколепсии (10 мин при ≥30u) · −20 сек сонливости/ед · при ≥20u: 4 яда + 4 удушья/ед</div>
+          <div class="ds">Доза: <b>10–20u</b> · не складывается, нарколептикам — 30u каждые 10 мин</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#4dd0e1" data-id="Б3">
+        <div class="card-head"><div class="num">Б3</div><div class="card-title">Метамфетамин</div><div class="card-out">100u/менз.<br><b>4 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Эфедрин</b> <span class="v">100u</span> = 1 мензурка по рецепту Б2 (Масло 25 + Диэтиламин 25 + Водород 25 + Сахар 25)</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s hot"><span class="n">1</span><div class="txt"><b>Эфедрин</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">2</span><div class="txt"><b>Йод</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">3</span><div class="txt"><b>Фосфор</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">4</span><div class="txt"><b>Углерод</b> <span class="v">25u</span> (20+5)</div></div>
+        <div class="s hot"><span class="n">H</span><div class="txt"><span class="t">Нагреть &gt;370K</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Скорость ×1.35 (4 сек/ед) · −3 сек оглушения/нокаута (заковать невозможно) · избавляет от нарколепсии (10 мин при ≥30u) · −20 сек сонливости/ед · при ≥30u: 4 яда + 4 удушья/ед</div>
+          <div class="ds">Доза: <b>15–30u</b> · постоянно наносит 1.5 яда/ед</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#88ffcc" data-id="Б4">
+        <div class="card-head"><div class="num">Б4</div><div class="card-title">Аранесп</div><div class="card-out">30u/цикл<br><b>3 цикла = 90u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Метамфетамин</b> <span class="v">90u</span> = 1 мензурка по рецепту Б3 (Эфедрин 25 + Йод 25 + Фосфор 25 + Углерод 25)</div>
+        <div class="p"><b>Эпинефрин</b> <span class="v">80u</span> = Масло 25 (Топливо 15 + H 5 + C 5) + Кислород 10 + Водород 25 + Кислород 15 + Углерод 10 + Хлор 20 <span class="t">(&gt;370K)</span> <span class="rsv">⟳</span></div>
+        <div class="p"><b>Дифенгидрамин</b> <span class="v">60u</span> = Диэтиламин 20 + Масло 20 + Соль 20 (Na 10 + Cl 10, &gt;370K) + Углерод 20 + Этанол 20 <span class="t">(&gt;377.59K, &lt;520K)</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Метамфетамин</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Эпинефрин</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Дифенгидрамин</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 3 → <span class="v">90u</span> (4-й цикл → 120u с запасом)</div></div>
+        <div class="res">
+          <div class="ef">+20 стамины/тик · иммунитет к замедлению от урона (10 сек/ед) · скорость ×1.25 (4 сек/ед) · −2 сек оглушения/нокаута · лечит 2 мех / 0.5 термич / 0.5 электр / 0.5 обмор / 0.5 радиации · 0.5 яда + 0.5 удушья/ед</div>
+          <div class="ds">Доза: <b>30u</b> · варится крайне дорого (≈13:1 вход:выход)</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#a8d8ff" data-id="Б5">
+        <div class="card-head"><div class="num">Б5</div><div class="card-title">Крианобаламин</div><div class="card-out">70u/менз.<br><b>5 = 350u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Криоксадон</b> <span class="v">20u</span> = Плазма 5 (кат.) + Кислород 20 + Вода 30 + Кислород 30</div>
+        <div class="p"><b>Физраствор</b> <span class="v">20u</span> = Вода 80 + Натрий 10 + Хлор 10 <span class="t">(&gt;370K)</span> <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Криоксадон</b> <span class="v">20u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Физраствор</b> <span class="v">20u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Сахар</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 5 → <span class="v">350u</span></div></div>
+        <div class="res">
+          <div class="ef">+3 стамины/тик · утоляет жажду · при ≥30u: 0.2 генетического урона/ед</div>
+          <div class="ds">Доза: <b>10–20u</b> · не более 30u</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ff3333" data-id="Б6">
+        <div class="card-head"><div class="num">Б6</div><div class="card-title">CLF3 (трифторид хлора)</div><div class="card-out">100u/менз.<br><b>взрывчатка</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Фтор</b> <span class="v">75u</span> (50+25)</div>
+        <div class="p"><b>Хлор</b> <span class="v">25u</span> (20+5)</div>
+        <div class="sect">Синтез (ВЗРЫВ)</div>
+        <div class="s hot"><span class="n">1</span><div class="txt"><b>Фтор</b> <span class="v">75u</span> — нагреть до <span class="t">&gt;370K</span> ОТДЕЛЬНО</div></div>
+        <div class="s hot"><span class="n">2</span><div class="txt"><b>Хлор</b> <span class="v">25u</span> — нагреть до <span class="t">&gt;370K</span> ОТДЕЛЬНО</div></div>
+        <div class="s hot"><span class="n">3</span><div class="txt">Смешать → <span class="t">немедленный взрыв</span></div></div>
+        <div class="res">
+          <div class="ef"><b>Урон (100u):</b> 225 на тайле сосуда · 150 на соседнем · 75 за 2 тайла</div>
+          <div class="ef"><b>Урон (75u, 3:1):</b> 75 на тайле сосуда</div>
+          <div class="ds">Оружие, не для хранения. Готовится на месте.</div>
+          <div class="warn">⚠ При смешивании горячих мензурок — мгновенный взрыв. Отойдите.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="Б1" style="--fc:#ff66cc">
+        <div class="fh"><span class="fn">Пакс</span><span class="fv">90u · ×4 = 360u</span></div>
+        <div class="feq"><span class="r-w">Вода</span><span class="famt">30</span> + <span class="r-syn">Синаптизин</span><span class="famt">30</span> + <span class="r-mind">Токсин майндбрейкер</span><span class="famt">30</span> = <b>90u</b></div>
+        <div class="fs"><span class="r-syn">Синаптизин</span> 90=<span class="r-li">Литий</span>30+<span class="r-sg">Сахар</span>30+<span class="r-w">Вода</span>30 <span class="sep">·</span> <span class="r-mind">Майндбрейкер</span> 90=<span class="r-h">Водород</span>30+<span class="r-si">Кремний</span>30+<span class="r-dil">Диловен</span>30 (&gt;370K) <span class="sep">·</span> <span class="r-dil">Диловен</span> 90=<span class="r-n">Азот</span>30+<span class="r-k">Калий</span>30+<span class="r-si">Кремний</span>30</div>
+      </div>
+      <div class="fcard" data-id="Б2" style="--fc:#ffcc66">
+        <div class="fh"><span class="fn">Эфедрин</span><span class="fv">100u · ×4 = 400u</span></div>
+        <div class="feq"><span class="r-oil">Масло</span><span class="famt">25</span> + <span class="r-diet">Диэтиламин</span><span class="famt">25</span> + <span class="r-h">Водород</span><span class="famt">25</span> + <span class="r-sg">Сахар</span><span class="famt">25</span> = <b>100u</b></div>
+        <div class="fs"><span class="r-oil">Масло</span> 90=<span class="r-fuel">Топливо</span>30+<span class="r-h">Водород</span>30+<span class="r-c">Углерод</span>30 <span class="sep">·</span> <span class="r-diet">Диэтиламин</span> 80=<span class="r-h">Водород</span>30+<span class="r-n">Азот</span>10+<span class="r-et">Этанол</span>40</div>
+      </div>
+      <div class="fcard" data-id="Б3" style="--fc:#4dd0e1">
+        <div class="fh"><span class="fn">Метамфетамин</span><span class="fv">100u · ×4 = 400u</span></div>
+        <div class="feq"><span class="r-eph">Эфедрин</span><span class="famt">25</span> + <span class="r-io">Йод</span><span class="famt">25</span> + <span class="r-p">Фосфор</span><span class="famt">25</span> + <span class="r-c">Углерод</span><span class="famt">25</span> = <b>100u</b> <span style="color:#ffb84d">&gt;370K</span></div>
+        <div class="fs"><span class="r-eph">Эфедрин</span> 100=<span class="r-oil">Масло</span>25+<span class="r-diet">Диэтиламин</span>25+<span class="r-h">Водород</span>25+<span class="r-sg">Сахар</span>25</div>
+      </div>
+      <div class="fcard" data-id="Б4" style="--fc:#88ffcc">
+        <div class="fh"><span class="fn">Аранесп</span><span class="fv">30u/цикл · ×3 ≈ 90u</span></div>
+        <div class="feq"><span class="r-meth">Метамфетамин</span><span class="famt">30</span> + <span class="r-epi">Эпинефрин</span><span class="famt">30</span> + <span class="r-dip">Дифенгидрамин</span><span class="famt">30</span> → <b>30u</b> (вход 90u)</div>
+        <div class="fs"><span class="r-epi">Эпинефрин</span> 80=<span class="r-oil">Масло</span>25+<span class="r-o">Кислород</span>10+<span class="r-h">Водород</span>25+<span class="r-o">Кислород</span>15+<span class="r-c">Углерод</span>10+<span class="r-cl">Хлор</span>20 (&gt;370K) <span class="sep">·</span> <span class="r-dip">Дифенгидрамин</span> 60=<span class="r-diet">Диэтиламин</span>20+<span class="r-oil">Масло</span>20+<span class="r-sal">Соль</span>20+<span class="r-c">Углерод</span>20+<span class="r-et">Этанол</span>20 (&gt;377.59K, &lt;520K)</div>
+      </div>
+      <div class="fcard" data-id="Б5" style="--fc:#a8d8ff">
+        <div class="fh"><span class="fn">Крианобаламин</span><span class="fv">70u · ×5 = 350u</span></div>
+        <div class="feq"><span class="r-krio">Криоксадон</span><span class="famt">20</span> + <span class="r-fiz">Физраствор</span><span class="famt">20</span> + <span class="r-sg">Сахар</span><span class="famt">30</span> = <b>70u</b></div>
+        <div class="fs"><span class="r-krio">Криоксадон</span> 20=<span class="r-pl">Плазма</span>5(кат.)+<span class="r-o">Кислород</span>20+<span class="r-w">Вода</span>30+<span class="r-o">Кислород</span>30 <span class="sep">·</span> <span class="r-fiz">Физраствор</span> 100=<span class="r-w">Вода</span>80+<span class="r-na">Натрий</span>10+<span class="r-cl">Хлор</span>10 (&gt;370K)</div>
+      </div>
+      <div class="fcard" data-id="Б6" style="--fc:#ff3333">
+        <div class="fh"><span class="fn">CLF3 · трифторид хлора</span><span class="fv">100u · ВЗРЫВ</span></div>
+        <div class="feq"><span class="r-f">Фтор</span><span class="famt">75</span> + <span class="r-cl">Хлор</span><span class="famt">25</span> = <b>100u</b> <span style="color:#ffb84d">&gt;370K</span></div>
+        <div class="fs">Нагреть Фтор и Хлор отдельно (&gt;370K), затем смешать → взрыв. Урон: 225 / 150 / 75 (3 тайла). При 3:1 — 75 на тайле сосуда.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА В ==================== -->
+  <div class="zone" data-zone="V" style="--za:#ff7ab8">
+    <div class="zone-head"><span class="zone-tag">В</span><span class="zone-title">Вирусные заболевания</span><span class="zone-sub">3 препарата</span></div>
+    <div class="grid">
+      <div class="card" style="--acc:#2bff88" data-id="В1">
+        <div class="card-head"><div class="num">В1</div><div class="card-title">Амбузол</div><div class="card-out">60u/менз.<br>кувшин <b>400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Диловен</b> <span class="v">90u</span> = Азот 30 + Калий 30 + Кремний 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Аммиак</b> <span class="v">100u</span> = Водород 75 + Азот 25 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Диловен</b> <span class="v">15u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Аммиак</b> <span class="v">15u</span> (5+5+5)</div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Кровь зомби</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 6 → <span class="v">360u</span></div></div>
+        <div class="sect">Синтез в кувшине 400u</div>
+        <div class="s"><span class="n">T</span><div class="txt">Диловен 100u + Аммиак 100u + Кровь зомби 200u</div></div>
+        <div class="res">
+          <div class="ef">Останавливает зомби-вирус при ≥10u.</div>
+          <div class="ds">Доза: <b>10u</b></div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ff7ab8" data-id="В2">
+        <div class="card-head"><div class="num">В2</div><div class="card-title">Девирейт</div><div class="card-out">90u/менз.<br><b>4 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Инапровалин</b> <span class="v">30u</span> = Кислород 10 + Сахар 10 + Углерод 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Иммурин</b> <span class="v">30u</span> = Инапровалин 10 + Сахар 10 + Железо 10 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Медь</b> <span class="v">45u</span> (30+15)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Иммурин</b> <span class="v">90u</span> (50+30+10)</div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">360u</span></div></div>
+        <div class="res">
+          <div class="ef">Снижает прогресс вирусного ×(−0.0333); 0.5 ед/сек; наносит 0.5 яда/тик.</div>
+          <div class="ds">Доза: <b>5–10u</b></div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ff7ab8" data-id="В3">
+        <div class="card-head"><div class="num">В3</div><div class="card-title">Космоцилин</div><div class="card-out">90u/менз.<br><b>4 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Инапровалин</b> <span class="v">30u</span> = Кислород 10 + Сахар 10 + Углерод 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Иммурин</b> <span class="v">30u</span> = Инапровалин 10 + Сахар 10 + Железо 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Диловен</b> <span class="v">90u</span> = Азот 30 + Калий 30 + Кремний 30 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Диловен</b> <span class="v">60u</span> (30+30)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Иммурин</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">360u</span></div></div>
+        <div class="res">
+          <div class="ef">Снижает прогресс бактериального ×(−0.0333); иммунитет: скорость −0.00056, сила −0.00444 ≥1 сек.</div>
+          <div class="ds">Доза: <b>5–10u</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="В1" style="--fc:#88e8c0">
+        <div class="fh"><span class="fn">Амбузол</span><span class="fv">60u · кувшин 400u</span></div>
+        <div class="feq"><span class="r-dil">Диловен</span><span class="famt">15</span> + <span class="r-am">Аммиак</span><span class="famt">15</span> + <span class="r-zb">Кровь зомби</span><span class="famt">30</span> = <b>60u</b></div>
+        <div class="fs"><span class="r-dil">Диловен</span> 90=<span class="r-n">Азот</span>30+<span class="r-k">Калий</span>30+<span class="r-si">Кремний</span>30 <span class="sep">·</span> <span class="r-am">Аммиак</span> 100=<span class="r-h">Водород</span>75+<span class="r-n">Азот</span>25 <span class="sep">·</span> Кувшин: <span class="r-dil">Диловен</span>100+<span class="r-am">Аммиак</span>100+<span class="r-zb">Кровь зомби</span>200 → <b>400u</b></div>
+      </div>
+      <div class="fcard" data-id="В2" style="--fc:#ff9ac8">
+        <div class="fh"><span class="fn">Девирейт</span><span class="fv">90u · ×4 = 360u</span></div>
+        <div class="feq"><span class="r-cu">Медь</span><span class="famt">45</span> + <span class="r-im">Иммурин</span><span class="famt">90</span> = <b>90u</b></div>
+        <div class="fs"><span class="r-im">Иммурин</span> 30=<span class="r-ina">Инапровалин</span>10+<span class="r-sg">Сахар</span>10+<span class="r-fe">Железо</span>10 <span class="sep">·</span> <span class="r-ina">Инапровалин</span> 30=<span class="r-o">Кислород</span>10+<span class="r-sg">Сахар</span>10+<span class="r-c">Углерод</span>10</div>
+      </div>
+      <div class="fcard" data-id="В3" style="--fc:#ff7ab8">
+        <div class="fh"><span class="fn">Космоцилин</span><span class="fv">90u · ×4 = 360u</span></div>
+        <div class="feq"><span class="r-dil">Диловен</span><span class="famt">60</span> + <span class="r-im">Иммурин</span><span class="famt">30</span> = <b>90u</b></div>
+        <div class="fs"><span class="r-dil">Диловен</span> 90=<span class="r-n">Азот</span>30+<span class="r-k">Калий</span>30+<span class="r-si">Кремний</span>30 <span class="sep">·</span> <span class="r-im">Иммурин</span> 30=<span class="r-ina">Инапровалин</span>10+<span class="r-sg">Сахар</span>10+<span class="r-fe">Железо</span>10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА С ==================== -->
+  <div class="zone" data-zone="S" style="--za:#8a8a8a">
+    <div class="zone-head"><span class="zone-tag">С</span><span class="zone-title">Ситуативные</span><span class="zone-sub">3 препарата</span></div>
+    <div class="grid">
+      <div class="card" style="--acc:#ffe66d" data-id="С1">
+        <div class="card-head"><div class="num">С1</div><div class="card-title">Фалангимин</div><div class="card-out">90u/менз.<br><b>4 = 360u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Мутаген</b> <span class="v">30u</span> = Радий 10 + Хлор 10 + Фосфор 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Хироналин</b> <span class="v">30u</span> = Кремний 5 + Калий 5 + Азот 5 + Радий 15</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Мутаген</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Хироналин</b> <span class="v">30u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Этанол</b> <span class="v">30u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">360u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит 2 клеточные за ед. · наносит 2 радиации за ед. · удаляет ген смерти у растений.</div>
+          <div class="ds">Доза: <b>5–10u</b> · передоза нет</div>
+          <div class="warn">⚠ Радиацию гасим пентеновой (смесь в П2).</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#39e6ff" data-id="С2">
+        <div class="card-head"><div class="num">С2</div><div class="card-title">Окулин</div><div class="card-out">80u/менз.<br><b>5 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Соль</b> <span class="v">20u</span> = Натрий 10 + Хлор 10 <span class="t">(&gt;370K)</span></div>
+        <div class="p"><b>Гидроксид</b> <span class="v">40u</span> = Водород 20 + Кислород 20 <span class="t">(&gt;310K)</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Соль</b> <span class="v">20u</span> (10+10)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Гидроксид</b> <span class="v">40u</span> (20+20)</div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Кровь</b> <span class="v">20u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 5 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит повреждения глаз. Слепых с рождения не спасает.</div>
+          <div class="ds">Доза: <b>5u</b> в глаза</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#ff5c6c" data-id="С3">
+        <div class="card-head"><div class="num">С3</div><div class="card-title">Морфин</div><div class="card-out">80u/менз.<br><b>3 = 240u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Фенол</b> <span class="v">40u</span> = Водород 30 + Углерод 20 + Кислород 10 <span class="t">(&gt;310K)</span> <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Фенол</b> <span class="v">40u</span> (30+10)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Азот</b> <span class="v">20u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Кислород</b> <span class="v">20u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 3 → <span class="v">240u</span></div></div>
+        <div class="res">
+          <div class="ef">0.2 ед/сек · обезболивающее (10 сек/ед) · при ≥20 ед. наносит 4 удушья</div>
+          <div class="ds">Доза: <b>15u</b> (2.5 мин) · передоз 16u</div>
+        </div>
+      </div>
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="С1" style="--fc:#e8d880">
+        <div class="fh"><span class="fn">Фалангимин</span><span class="fv">90u · ×4 = 360u</span></div>
+        <div class="feq"><span class="r-mut">Мутаген</span><span class="famt">30</span> + <span class="r-hir">Хироналин</span><span class="famt">30</span> + <span class="r-et">Этанол</span><span class="famt">30</span> = <b>90u</b></div>
+        <div class="fs"><span class="r-mut">Мутаген</span> 30=<span class="r-ra">Радий</span>10+<span class="r-cl">Хлор</span>10+<span class="r-p">Фосфор</span>10 <span class="sep">·</span> <span class="r-hir">Хироналин</span> 30=<span class="r-si">Кремний</span>5+<span class="r-k">Калий</span>5+<span class="r-n">Азот</span>5+<span class="r-ra">Радий</span>15</div>
+      </div>
+      <div class="fcard" data-id="С2" style="--fc:#a8d0ff">
+        <div class="fh"><span class="fn">Окулин</span><span class="fv">80u · ×5 = 400u</span></div>
+        <div class="feq"><span class="r-sal">Соль</span><span class="famt">20</span> + <span class="r-gid">Гидроксид</span><span class="famt">40</span> + <span class="r-bl">Кровь</span><span class="famt">20</span> = <b>80u</b></div>
+        <div class="fs"><span class="r-sal">Соль</span> 20=<span class="r-na">Натрий</span>10+<span class="r-cl">Хлор</span>10 (&gt;370K) <span class="sep">·</span> <span class="r-gid">Гидроксид</span> 40=<span class="r-h">Водород</span>20+<span class="r-o">Кислород</span>20 (&gt;310K)</div>
+      </div>
+      <div class="fcard" data-id="С3" style="--fc:#ff9090">
+        <div class="fh"><span class="fn">Морфин</span><span class="fv">80u · ×3 = 240u</span></div>
+        <div class="feq"><span class="r-fen">Фенол</span><span class="famt">40</span> + <span class="r-n">Азот</span><span class="famt">20</span> + <span class="r-o">Кислород</span><span class="famt">20</span> = <b>80u</b></div>
+        <div class="fs"><span class="r-fen">Фенол</span> 40=<span class="r-h">Водород</span>30+<span class="r-c">Углерод</span>20+<span class="r-o">Кислород</span>10 (&gt;310K)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА М ==================== -->
+  <div class="zone" data-zone="M" style="--za:#4a9eff">
+    <div class="zone-head"><span class="zone-tag">М</span><span class="zone-title">Материалы</span><span class="zone-sub">пластик и прочее сырьё для крафта</span></div>
+    <div class="grid">
+
+      <div class="card" style="--acc:#4a9eff" data-id="М1">
+        <div class="card-head"><div class="num">М1</div><div class="card-title">Пластик</div><div class="card-out">100u/менз.<br><b>10 штук</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Масло</b> <span class="v">90u</span> = Водород 30 + Углерод 30 + Сварочное топливо 30 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Серная кислота</b> <span class="v">30u</span> = Водород 10 + Кислород 20 + Сера 10 <span class="rsv">⟳</span></div>
+        <div class="p"><b>Пепел</b> <span class="v">30u</span> = сжигание масла</div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Масло</b> <span class="v">50u</span> (30+20)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Серная кислота</b> <span class="v">20u</span></div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Пепел</b> <span class="v">30u</span></div></div>
+        <div class="s hot"><span class="n">H</span><div class="txt"><span class="t">Нагреть &gt;374K</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 4 → <span class="v">400u</span> · <b>40 пластика</b></div></div>
+        <div class="res">
+          <div class="ef">Материал для крафта (корпуса, детали, тара).</div>
+          <div class="ds">Выход: <b>10 пластика</b> за варку</div>
+          <div class="warn">⚠ Пепел добывается сжиганием масла.</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="М1" style="--fc:#4a9eff">
+        <div class="fh"><span class="fn">Пластик</span><span class="fv">100u · 10 штук</span></div>
+        <div class="feq"><span class="r-oil">Масло</span><span class="famt">50</span> + <span class="r-so4">Серная</span><span class="famt">20</span> + <span class="r-ash">Пепел</span><span class="famt">30</span> = <b>10 пластика</b> <span style="color:#ffb84d">&gt;374K</span></div>
+        <div class="fs"><span class="r-oil">Масло</span> 90=<span class="r-h">Водород</span>30+<span class="r-c">Углерод</span>30+<span class="r-fuel">Свароч.</span>30 <span class="sep">·</span> <span class="r-so4">Серная</span> 30=<span class="r-h">Водород</span>10+<span class="r-o">Кислород</span>20+<span class="r-s">Сера</span>10 <span class="sep">·</span> <span class="r-ash">Пепел</span> — сжигание масла</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА П ==================== -->
+  <div class="zone" data-zone="P" style="--za:#b77bff">
+    <div class="zone-head"><span class="zone-tag">П</span><span class="zone-title">Примеси и пропорции</span><span class="zone-sub">смеси, устраняющие свой же негативный эффект</span></div>
+    <div class="grid">
+      <div class="card" style="--acc:#2bff88" data-id="П1">
+        <div class="card-head"><div class="num">П1</div><div class="card-title">Артипластины + Физраствор 1:1</div><div class="card-out"><b>400u</b><br>200 + 200</div></div>
+        <div class="sect">Компоненты</div>
+        <div class="p"><b>Артипластины</b> — К3: Физраствор 15 + Транексамовая 10 + Железо 5 + Медь 5, <span class="t">&gt;310K</span></div>
+        <div class="p"><b>Физраствор</b> — К3: Вода 80 + Соль 20 (Натрий 10 + Хлор 10, <span class="t">&gt;370K</span>) <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез в кувшине 200u</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Артипластины</b> <span class="v">200u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Физраствор</b> <span class="v">200u</span></div></div>
+        <div class="res">
+          <div class="ef">Лечит 10 кровопотери за ед., уменьшает кровотечение, восстанавливает кровь.</div>
+          <div class="ds">Доза: <b>10u</b> · передоз 11u</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#b77bff" data-id="П2">
+        <div class="card-head"><div class="num">П2</div><div class="card-title">Фалангимин + Пентеновая 1:2</div><div class="card-out"><b>195u</b><br>65 + 130</div></div>
+        <div class="sect">Компоненты</div>
+        <div class="p"><b>Фалангимин</b> — С1: Мутаген 30 + Хироналин 30 + Этанол 30 = 90u</div>
+        <div class="p"><b>Пентеновая</b> — К1: Политриновая 25 + Йодистый калий 25 + Галоперидол 25 + Cyanide 25 = 100u</div>
+        <div class="sect">Синтез в кувшине 200u</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Фалангимин</b> <span class="v">65u</span> (50+15)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Пентеновая</b> <span class="v">130u</span> (100+30)</div></div>
+        <div class="res">
+          <div class="ef">Клеточные + нейтрализация радиации от фаланги. Пропорция <b>1:2</b>.</div>
+          <div class="ds">Доза: <b>10u</b> (≈3.3 фаланги + 6.7 пенты)</div>
+          <div class="warn">⚠ Пентеновая выводит 3u/тик других в-в — давать сразу.</div>
+        </div>
+      </div>
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="П1" style="--fc:#7ee0b0">
+        <div class="fh"><span class="fn">Артипластины + Физраствор 1:1</span><span class="fv">400u</span></div>
+        <div class="feq"><span class="r-art">Артипластины</span><span class="famt">200</span> + <span class="r-fiz">Физраствор</span><span class="famt">200</span> = <b>400u</b></div>
+        <div class="fs">Смешать в кувшине, без нагрева</div>
+      </div>
+      <div class="fcard" data-id="П2" style="--fc:#b77bff">
+        <div class="fh"><span class="fn">Фалангимин + Пентеновая 1:2</span><span class="fv">195u</span></div>
+        <div class="feq"><span class="r-fal">Фалангимин</span><span class="famt">65</span> + <span class="r-pol">Пентеновая</span><span class="famt">130</span> = <b>195u</b></div>
+        <div class="fs">Смешать в кувшине, без нагрева</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЗОНА Р ==================== -->
+  <div class="zone" data-zone="R" style="--za:#5a5a5a">
+    <div class="zone-head"><span class="zone-tag">Р</span><span class="zone-title">Разное</span><span class="zone-sub">компоненты и утилитарное</span></div>
+    <div class="grid">
+      <div class="card" style="--acc:#ffe66d" data-id="Р1">
+        <div class="card-head"><div class="num">Р1</div><div class="card-title">Нестабильный мутаген</div><div class="card-out">30u/менз.<br><b>3 = 90u</b></div></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Радий</b> <span class="v">10u</span> (5+5)</div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Хлор</b> <span class="v">10u</span> (5+5)</div></div>
+        <div class="s"><span class="n">3</span><div class="txt"><b>Фосфор</b> <span class="v">10u</span> (5+5)</div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 3 → <span class="v">90u</span></div></div>
+        <div class="res">
+          <div class="ef">Компонент фаланги. Для ботаника — мутагенез растений.</div>
+          <div class="ds">Не для введения</div>
+        </div>
+      </div>
+
+      <div class="card" style="--acc:#39e6ff" data-id="Р2">
+        <div class="card-head"><div class="num">Р2</div><div class="card-title">Космический очиститель</div><div class="card-out">80u/менз.<br><b>5 = 400u</b></div></div>
+        <div class="sect">Промежуточные компоненты</div>
+        <div class="p"><b>Аммиак</b> <span class="v">40u</span> = Водород 30 + Азот 10 <span class="rsv">⟳</span></div>
+        <div class="sect">Синтез конечного продукта</div>
+        <div class="s"><span class="n">1</span><div class="txt"><b>Вода</b> <span class="v">40u</span></div></div>
+        <div class="s"><span class="n">2</span><div class="txt"><b>Аммиак</b> <span class="v">40u</span></div></div>
+        <div class="s rep"><span class="n">↻</span><div class="txt">× 5 → <span class="v">400u</span></div></div>
+        <div class="res">
+          <div class="ef">Очищает пол от граффити, лужи. Спрей / пена.</div>
+          <div class="ds">Не для введения — для уборщика</div>
+        </div>
+      </div>
+    </div>
+    <div class="fgrid">
+      <div class="fcard" data-id="Р1" style="--fc:#d0a8e8">
+        <div class="fh"><span class="fn">Нестабильный мутаген</span><span class="fv">30u · ×3 = 90u</span></div>
+        <div class="feq"><span class="r-ra">Радий</span><span class="famt">10</span> + <span class="r-cl">Хлор</span><span class="famt">10</span> + <span class="r-p">Фосфор</span><span class="famt">10</span> = <b>30u</b></div>
+      </div>
+      <div class="fcard" data-id="Р2" style="--fc:#a8e8f0">
+        <div class="fh"><span class="fn">Космический очиститель</span><span class="fv">80u · ×5 = 400u</span></div>
+        <div class="feq"><span class="r-w">Вода</span><span class="famt">40</span> + <span class="r-am">Аммиак</span><span class="famt">40</span> = <b>80u</b></div>
+        <div class="fs"><span class="r-am">Аммиак</span> 40=<span class="r-h">Водород</span>30+<span class="r-n">Азот</span>10</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ЭКСПЕРИМЕНТ ==================== -->
+  <div class="ft">SS14 · Справочник · К · Б · В · С · М · П · Р · Мензурка 100u · Кувшин 200u (не греть) · Клики 1/5/15/20/30/50/100 · <button type="button" class="ver-link" data-open-changelog>v2.0</button></div>
+</div>
+<dialog id="changelog" aria-labelledby="clTitle">
+  <div class="cl-box">
+    <div class="cl-head">
+      <h2 id="clTitle">Журнал изменений</h2>
+      <span class="cl-cur">текущая версия <b>2.0</b></span>
+      <button type="button" class="cl-all" id="clToggleAll">Развернуть все</button>
+      <button type="button" class="cl-close" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="cl-body">
+      <!-- CHANGELOG:START -->
+      <details class="ver major" open><summary><span class="vn">2.0</span><span class="vd">2026-11-20</span><span class="vt">Выход на GitHub</span></summary><div class="ver-body">
+        <h4 class="add">Добавлено</h4><ul><li>Окно «Журнал изменений»: кнопка в панели над категориями и номер версии в подвале. Версии раскрываются по клику, свежая открыта по умолчанию. Закрыть окно можно кнопкой ✕, клавишей Esc или кликом по фону.</li><li>Кнопка «Развернуть все / Свернуть все» внутри журнала.</li><li>Номер версии <code>v2.0</code> в подвале страницы.</li></ul>
+        <h4 class="chg">Изменено</h4><ul><li>Проект собран для публикации на GitHub Pages: в одной папке лежат <code>index.html</code>, <code>style.css</code>, <code>script.js</code> и <code>CHANGELOG.md</code>, все ссылки относительные.</li><li>История пересобрана по версиям 1.0–2.0. <code>CHANGELOG.md</code> и окно на сайте показывают одно и то же.</li></ul>
+      </div></details>
+      <details class="ver"><summary><span class="vn">1.3</span><span class="vd">2026-11-20</span><span class="vt">Два оформления</span></summary><div class="ver-body">
+        <h4 class="add">Добавлено</h4><ul><li>Переключатель «Оформление: Стандартное / Экспериментальное» в панели над категориями. В экспериментальном оформлении каждый рецепт показан компактной формулой, а сверху появляется палитра цветов реагентов.</li><li>Кнопка ✕ скрывает рецепт сразу в обоих оформлениях. Счётчики скрытых считаются по рецептам.</li></ul>
+        <h4 class="chg">Изменено</h4><ul><li>Формулы больше не лежат отдельным разделом: каждая стоит в своей категории на месте карточки (К, Б, В, С, М, П, Р).</li><li>Оформление по умолчанию стандартное. Выбор не сохраняется: после обновления страницы снова открывается стандартное.</li></ul>
+        <h4 class="del">Удалено</h4><ul><li>Раздел «Эксперимент · все препараты в формате формул» в конце страницы. Весь его контент сохранён в переключателе.</li></ul>
+        <h4 class="fix">Исправлено</h4><ul><li>Категория не сворачивалась в экспериментальном оформлении (правило режима перебивало правило сворачивания).</li></ul>
+      </div></details>
+      <details class="ver"><summary><span class="vn">1.2</span><span class="vd">2026-11-20</span><span class="vt">Сворачивание и скрытие</span></summary><div class="ver-body">
+        <h4 class="add">Добавлено</h4><ul><li>Категории сворачиваются и разворачиваются кликом по заголовку. С клавиатуры: Tab к заголовку, затем Enter или пробел.</li><li>Кнопка ✕ на каждом рецепте скрывает его до обновления страницы.</li><li>В заголовке категории счётчик «скрыто: N · показать»: клик возвращает скрытые рецепты этой категории.</li><li>Панель над категориями: «Свернуть все», «Развернуть все», «Показать скрытые (N)».</li><li>Файл <code>script.js</code> с логикой сворачивания и скрытия (без библиотек).</li><li>Журнал изменений <code>CHANGELOG.md</code>.</li></ul>
+        <h4 class="chg">Изменено</h4><ul><li>В карточке формулы объём (<code>100u · ×4 = 400u</code>) выровнен вправо перед кнопкой ✕.</li></ul>
+      </div></details>
+      <details class="ver"><summary><span class="vn">1.1</span><span class="vd">2026-11-20</span><span class="vt">Салициловая кислота</span></summary><div class="ver-body">
+        <h4 class="add">Добавлено</h4><ul><li><b>К5 · Салициловая кислота</b> в категории К (последней в очереди). Рецепт: Транексамовая + Фторсерная + Гидроксид натрия + Бикаридин по 25u, нагрев &gt;370K, ×4 = 400u.</li><li>Формула салициловой кислоты в разделе формул.</li><li>Цвета реагентов для новых веществ: <code>.r-fsa</code> (Фторсерная), <code>.r-naoh</code> (Гидроксид натрия), <code>.r-bic</code> (Бикаридин).</li></ul>
+        <h4 class="chg">Изменено</h4><ul><li>Подпись категории К: «Пентеновая → Дексалин+ → Артипластины → Оксандролон → Салициловая».</li><li>Стили вынесены из <code>index.html</code> в отдельный <code>style.css</code>. Оба файла должны лежать в одной папке.</li></ul>
+      </div></details>
+      <details class="ver"><summary><span class="vn">1.0</span><span class="vt">Исходная версия</span></summary><div class="ver-body">
+        <h4 class="add">Добавлено</h4><ul><li>Категории К (Критически важные), Б (Бой), В (Вирусные заболевания), С (Ситуативные), М (Материалы), П (Примеси и пропорции), Р (Разное).</li><li>Раздел «Эксперимент» с палитрой реагентов и формулами всех препаратов.</li><li>Весь код в одном файле.</li></ul>
+      </div></details>
+      <div class="cl-notes"><h4>Известные замечания</h4><ul><li>В формуле «Фалангимин + Пентеновая 1:2» используется CSS-класс <code>.r-fal</code>, которого нет в <code>style.css</code>, поэтому слово «Фалангимин» там не окрашено.</li><li>Для ×4 нужно по 100u каждого промежуточного компонента, а одна партия даёт 80–100u (в К1, К4 и К5). Последний цикл придётся добирать с запасом.</li></ul></div>
+      <!-- CHANGELOG:END -->
+    </div>
+  </div>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
