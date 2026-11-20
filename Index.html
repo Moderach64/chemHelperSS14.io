@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Химия SS14</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- HEADER -->
+    <div class="header-top">
+        <h1 class="header-title">Химия <span>SS14</span></h1>
+        <div class="header-subtitle">Для новичков и профессионалов • Оптимизированные рецепты крафта</div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend-bar">
+        <div class="legend-item"><span class="hl">Мензурка 100u</span> греется</div>
+        <div class="legend-item"><span class="hl">Кувшин 200u</span> не греется</div>
+        <div class="legend-item"><span class="hl-cyan">Клики 1/5/10/20/25/30/50/100</span></div>
+        <div class="legend-item">25u=20+5 • 45u=30+15</div>
+        <div class="legend-item"><span class="hl-green">ЗАПАС</span> — варим заранее</div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- КАТЕГОРИЯ: КРИТИЧЕСКИ ВАЖНЫЕ -->
+    <!-- ============================================== -->
+    <div class="category-header">Критически важные</div>
+
+    <div class="grid-container">
+        <!-- K1: САЛИЦИЛОВАЯ КИСЛОТА -->
+        <div class="card card-k1">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge">К1</span>
+                    <h2 class="card-title">Салициловая кислота</h2>
+                </div>
+                <div class="card-stats">
+                    100u/менз.<br>
+                    <span class="big-green">4 = 400u</span>
+                </div>
+            </div>
+            
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота x2 по 60u</div>
+                    <div class="comp-formula">= Водород 20 + Кислород 40 + Сера 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Инапровалин x3 по 90u</div>
+                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Транексамовая кислота x2 по 90u</div>
+                    <div class="comp-formula">= Инапровалин 30 + Серная 30 + Сахар 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Фторсерная кислота x2 по 80u</div>
+                    <div class="comp-formula">= Водород 20 + Калий 20 + Фтор 20 + Серная 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Гидроксид натрия по 100u</div>
+                    <div class="comp-formula">= Гидроксид 50 (Кислород 25 + Водород 25 <span class="hl-heat">&gt;310K</span>) + Натрий 50</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Бикаридин x2 по 90u</div>
+                    <div class="comp-formula">= Инапровалин 45 + Углерод 45</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Транексамовая</div>
+                        <div class="synth-qty">25u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Фторсерная</div>
+                        <div class="synth-qty">25u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Гидроксид натрия</div>
+                        <div class="synth-qty">25u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">4</div>
+                        <div class="synth-name">Бикаридин</div>
+                        <div class="synth-qty">25u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">5</div>
+                        <div class="synth-name">Нагреть</div>
+                        <div class="synth-qty hl-heat">&gt;370K</div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">4 = 400u</div>
+                    <div class="final-desc">
+                        Лечит 6 ударов/разрезов/уколов за ед. при ≥25 механ. урона (0,67 при меньшем). При ≥25u в крови наносит 2 урона за ед.
+                    </div>
+                    <div class="dose-info">Доза: 20u • передоз 25u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- K2: ОКСАНДРОЛОН -->
+        <div class="card card-k2">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge">К2</span>
+                    <h2 class="card-title">Оксандролон</h2>
+                </div>
+                <div class="card-stats">100u/менз.<br><span class="big-green">4 = 400u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Столовая соль по 40u</div>
+                    <div class="comp-formula">= Натрий 20 + Хлор 20 <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Аммиак по 40u</div>
+                    <div class="comp-formula">= Водород 30 + Азот 10</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Карбонат натрия x2 по 80u</div>
+                    <div class="comp-formula">= Соль 20 + Аммиак 20 + Кислород 20 + Углерод 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Фенол x2 по 60u</div>
+                    <div class="comp-formula">= Водород 30 + Кислород 10 + Углерод 20 <span class="hl-heat">&gt;310K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Дермалин x2 по 90u</div>
+                    <div class="comp-formula">= Кремний 15 + Углерод 15 + Фосфор 30 + Кислород 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Ферсилицит по 80u</div>
+                    <div class="comp-formula">= Железо 40 + Кремний 40 <span class="hl-heat">&gt;310K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Лепоразин по 160u (в кувшине)</div>
+                    <div class="comp-formula">= Ферсилицит 80 + Плазма 1 + Медь 80</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Карбонат натрия</div>
+                        <div class="synth-qty">50u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Дермалин</div>
+                        <div class="synth-qty">50u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Фенол</div>
+                        <div class="synth-qty">50u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">4</div>
+                        <div class="synth-name">Лепоразин</div>
+                        <div class="synth-qty">50u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">2 = 400u</div>
+                    <div class="final-desc">
+                        Лечит 6 термические, 6 обморожение, 4 электрические и 4 кислотные за единицу, когда у сущности минимум 25 урона ожоги. При меньшем уроне лечит по 1. При ≥25u наносит 6 ожогов за единицу.
+                    </div>
+                    <div class="dose-info">Доза: 10u • передоз 25u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- K3: АРТИПЛАСТИНЫ -->
+        <div class="card card-k3">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge">К3</span>
+                    <h2 class="card-title">Артипластины</h2>
+                </div>
+                <div class="card-stats">60u/менз.<br><span class="big-green">6 = 360u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Столовая соль по 20u</div>
+                    <div class="comp-formula">= Натрий 10 + Хлор 10 <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Физраствор по 100u</div>
+                    <div class="comp-formula">= Вода 80 + Столовая соль 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Инапровалин по 30u</div>
+                    <div class="comp-formula">= Кислород 10 + Сахар 10 + Углерод 10</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота по 30u</div>
+                    <div class="comp-formula">= Водород 10 + Кислород 20 + Сера 10</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Транексамовая кислота по 90u</div>
+                    <div class="comp-formula">= Инапровалин 30 + Серная 30 + Сахар 30</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Физраствор</div>
+                        <div class="synth-qty">30u <span class="synth-sep">|</span> <span class="synth-jug">60u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Транексамовая</div>
+                        <div class="synth-qty">20u <span class="synth-sep">|</span> <span class="synth-jug">40u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Железо</div>
+                        <div class="synth-qty">10u <span class="synth-sep">|</span> <span class="synth-jug">20u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">4</div>
+                        <div class="synth-name">Медь</div>
+                        <div class="synth-qty">10u <span class="synth-sep">|</span> <span class="synth-jug">20u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">5</div>
+                        <div class="synth-name">Нагреть</div>
+                        <div class="synth-qty hl-heat">&gt;310K</div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">6 = 360u</div>
+                    <div class="final-desc">
+                        Лечит 10 кровопотери за единицу (при &lt;11u). Уменьшает кровотечение. Восстанавливает кровь в организме.
+                    </div>
+                    <div class="dose-info">Доза: 10u • передоз 11u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- K4: ДЕКСАЛИН ПЛЮС -->
+        <div class="card card-k4">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge">К4</span>
+                    <h2 class="card-title">Дексалин плюс</h2>
+                </div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Дексалин x2 по 60u</div>
+                    <div class="comp-formula">= Плазма 2 + Кислород 40</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Дексалин</div>
+                        <div class="synth-qty">30u <span class="synth-sep">|</span> <span class="synth-jug">60u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Железо</div>
+                        <div class="synth-qty">30u <span class="synth-sep">|</span> <span class="synth-jug">60u</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Углерод</div>
+                        <div class="synth-qty">30u <span class="synth-sep">|</span> <span class="synth-jug">60u</span></div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">4 = 360u</div>
+                    <div class="final-desc">
+                        Лечит кислородное голодание и потерю крови. Выводит Токсин хартбрейкер.
+                    </div>
+                    <div class="dose-info">Доза: 10u • передоз 20u</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- КАТЕГОРИЯ: ВИРУСЫ -->
+    <!-- ============================================== -->
+    <div class="category-header" style="color: #ef4444; margin-top: 30px;">Вирусы</div>
+
+    <div class="grid-container">
+        <!-- B1: АМБУЗОЛ -->
+        <div class="card card-k5">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-yellow);">В1</span>
+                    <h2 class="card-title">Амбузол</h2>
+                </div>
+                <div class="card-stats">400u/кувш.<br><span class="big-green">1 = 400u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Диловен x2 по 90u</div>
+                    <div class="comp-formula">= Азот 30 + Калий 30 + Кремний 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Аммиак x3 по 100u</div>
+                    <div class="comp-formula">= Водород 75 + Азот 25</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта В КУВШИНЕ</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Диловен</div>
+                        <div class="synth-qty">100u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Аммиак</div>
+                        <div class="synth-qty">100u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Кровь зомби</div>
+                        <div class="synth-qty">200u</div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">1 = 400u</div>
+                    <div class="final-desc">
+                        Останавливает зомби-вирус при ≥10u.
+                    </div>
+                    <div class="dose-info">Доза: 10u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- B2: ДЕВИРЕЙТ -->
+        <div class="card card-k6">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: #3b82f6;">В2</span>
+                    <h2 class="card-title">Девирейт</h2>
+                </div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Инапровалин x2 по 90u</div>
+                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30 </div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Иммурин x2 по 90u</div>
+                    <div class="comp-formula">= Инапровалин 30 + Сахар 30 + Железо 30 </div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта в кувшине</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Медь + Иммурин</div>
+                        <div class="synth-qty">45u + 90u <span style="font-size:10px; color:var(--text-muted); margin-left:4px;">(135u вход)</span></div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">4 = 360u</div>
+                    <div class="final-desc">
+                        Снижает прогресс вирусного ×(−0.0333); 0.5 ед/сек; наносит 0.5 яда/тик.
+                    </div>
+                    <div class="dose-info">Доза: 5–10u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- B3: КОСМОЦИЛИН -->
+        <div class="card card-k1" style="--accent-purple: #ec4899;">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: #ec4899;">В3</span>
+                    <h2 class="card-title">Космоцилин</h2>
+                </div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                
+                <div class="component-box">
+                    <div class="comp-title">Инапровалин x2 по 90u</div>
+                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Иммурин x2 по 90u</div>
+                    <div class="comp-formula">= Инапровалин 30 + Сахар 30 + Железо 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Диловен x2 по 90u</div>
+                    <div class="comp-formula">= Азот 30 + Калий 30 + Кремний 30</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта в кувшинах</div>
+
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Диловен</div>
+                        <div class="synth-qty">120u </div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Иммурин</div>
+                        <div class="synth-qty">60u</div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-title">4 = 360u</div>
+                    <div class="final-desc">
+                        Снижает прогресс бактериального ×(−0.0333); иммунитет: скорость −0.00056, сила −0.00444 ≥1 сек.
+                    </div>
+                    <div class="dose-info">Доза: 5–10u</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- КАТЕГОРИЯ: СИТУАТИВНЫЕ -->
+    <!-- ============================================== -->
+    <div class="category-header" style="color: var(--accent-yellow); margin-top: 30px;">Ситуативные</div>
+
+    <div class="grid-container">
+        <!-- C1: ФАЛАНГИМИН -->
+        <div class="card card-k5">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-yellow);">С1</span>
+                    <h2 class="card-title">Фалангимин</h2>
+                </div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Мутаген по 60u</div>
+                    <div class="comp-formula">= Радий 20 + Хлор 20 + Фосфор 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Хироналин по 60u</div>
+                    <div class="comp-formula">= Кремний 10 + Калий 10 + Азот 10 + Радий 30</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Мутаген</div>
+                        <div class="synth-qty">30u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Хироналин</div>
+                        <div class="synth-qty">30u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Этанол</div>
+                        <div class="synth-qty">30u</div>
+                    </div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">4 = 360u</div>
+                    <div class="final-desc">
+                        Лечит 2 клеточные за ед., наносит 2 радиации за ед., удаляет ген смерти у растений.<br>
+                        <span style="color: #ef4444;">▲ Радиацию гасим пентеновой (смесь в П2).</span>
+                    </div>
+                    <div class="dose-info">Доза: 5-10u • передоза нет</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- C2: ОКУЛИН -->
+        <div class="card card-k2">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-cyan);">С2</span>
+                    <h2 class="card-title">Окулин</h2>
+                </div>
+                <div class="card-stats">80u/менз.<br><span class="big-green">5 = 400u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Соль по 100u</div>
+                    <div class="comp-formula">= Натрий 50 + Хлор 50 <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Гидроксид x2 по 100u</div>
+                    <div class="comp-formula">= Водород 50 + Кислород 50 <span class="hl-heat">&gt;310K</span></div>
+                </div>
+                
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Соль</div>
+                        <div class="synth-qty">20u <span style="font-size:10px; color:var(--text-muted);">(10+10)</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Гидроксид</div>
+                        <div class="synth-qty">40u <span style="font-size:10px; color:var(--text-muted);">(20+20)</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Кровь</div>
+                        <div class="synth-qty">20u</div>
+                    </div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">5 = 400u</div>
+                    <div class="final-desc">
+                        Лечит повреждения глаз. Слепых с рождения не спасает.
+                    </div>
+                    <div class="dose-info">Доза: 5u в глаза</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- C3: МОРФИН -->
+        <div class="card card-k4">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-red);">С3</span>
+                    <h2 class="card-title">Морфин</h2>
+                </div>
+                <div class="card-stats">80u/менз.<br><span class="big-green">3 = 240u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Фенол x2 по 80u</div>
+                    <div class="comp-formula">= Водород 60 + Кислород 20 + Углерод 40 <span class="hl-heat">&gt;310K; 120u вход → 80u выход; 3:2</span></div>
+                </div>
+                
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Фенол</div>
+                        <div class="synth-qty">40u <span style="font-size:10px; color:var(--text-muted);">(30+10)</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Азот</div>
+                        <div class="synth-qty">20u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Кислород</div>
+                        <div class="synth-qty">20u</div>
+                    </div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">3 = 240u</div>
+                    <div class="final-desc">
+                        0.2 ед/сек обезболивающее (10 сек/ед); при ≥20 ед. наносит 4 удушья.
+                    </div>
+                    <div class="dose-info">Доза: 15u (2.5 мин) • передоз 16u</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- КАТЕГОРИЯ: МАТЕРИАЛЫ -->
+    <!-- ============================================== -->
+    <div class="category-header" style="color: var(--accent-cyan); margin-top: 30px;">Материалы</div>
+
+    <div class="grid-container">
+        <!-- M1: ПЛАСТИК -->
+        <div class="card card-k2 card-wide">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-cyan);">М1</span>
+                    <h2 class="card-title">Пластик</h2>
+                </div>
+                <div class="card-stats"><span class="big-green">10 пластика</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Масло по 90u</div>
+                    <div class="comp-formula">= Сварочное топливо 30 + Водород 30 + Углерод 30 <span style="color:var(--text-muted);">(нужно 50u)</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота по 30u</div>
+                    <div class="comp-formula">= Водород 10 + Сера 10 + Кислород 20 <span class="hl-heat">(40u вход → 30u выход; нужно 20u)</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Пепел по 30u</div>
+                    <div class="comp-formula">= Сжигание масла <span style="color:var(--text-muted);">(нужно 30u)</span></div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта — 10 ШТУК</div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Масло</div>
+                        <div class="synth-qty">50u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Серная кислота</div>
+                        <div class="synth-qty">20u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Пепел</div>
+                        <div class="synth-qty">30u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">4</div>
+                        <div class="synth-name">Нагреть</div>
+                        <div class="synth-qty hl-heat">&gt;374K — 10 пластика</div>
+                    </div>
+                </div>
+
+                <div class="final-output">
+                    <div class="final-desc">
+                        Материал для крафта (корпуса, детали, тара).<br>
+                        <span style="color: var(--highlight-green);">Выход: 10 пластика за варку</span><br>
+                        <span style="color: #ef4444;">▲ Пепел добывается сжиганием масла.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- КАТЕГОРИЯ: РАЗНОЕ -->
+    <!-- ============================================== -->
+    <div class="category-header" style="color: var(--text-muted); margin-top: 30px;">Разное</div>
+
+    <div class="grid-container">
+        <!-- P1: НЕСТАБИЛЬНЫЙ МУТАГЕН -->
+        <div class="card card-k5">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-yellow);">Р1</span>
+                    <h2 class="card-title">Нестабильный мутаген</h2>
+                </div>
+                <div class="card-stats">30u/менз.<br><span class="big-green">3 = 90u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Синтез конечного продукта</div>
+                <div class="component-box" style="margin-bottom: 8px;">
+                    <div class="comp-title">Мутаген x3 (по 30u)</div>
+                    <div class="comp-formula">= Радий 10 + Хлор 10 + Фосфор 10</div>
+                </div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Радий</div>
+                        <div class="synth-qty">10u <span style="font-size:10px; color:var(--text-muted);">(5+5)</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Хлор</div>
+                        <div class="synth-qty">10u <span style="font-size:10px; color:var(--text-muted);">(5+5)</span></div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">3</div>
+                        <div class="synth-name">Фосфор</div>
+                        <div class="synth-qty">10u <span style="font-size:10px; color:var(--text-muted);">(5+5)</span></div>
+                    </div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">3 = 90u</div>
+                    <div class="final-desc">
+                        Компонент фаланги. Для ботаника — мутагенез растений.<br>
+                        <span style="color: #ef4444;">Не для введения.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- P2: КОСМИЧЕСКИЙ ОЧИСТИТЕЛЬ -->
+        <div class="card card-k2">
+            <div class="card-header">
+                <div class="card-title-wrapper">
+                    <span class="k-badge" style="background-color: var(--accent-cyan);">Р2</span>
+                    <h2 class="card-title">Космический очиститель</h2>
+                </div>
+                <div class="card-stats">80u/менз.<br><span class="big-green">5 = 400u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Аммиак x2 по 100u</div>
+                    <div class="comp-formula">= Водород 75 + Азот 25</div>
+                </div>
+
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step">
+                        <div class="synth-num">1</div>
+                        <div class="synth-name">Вода</div>
+                        <div class="synth-qty">40u</div>
+                    </div>
+                    <div class="synth-step">
+                        <div class="synth-num">2</div>
+                        <div class="synth-name">Аммиак</div>
+                        <div class="synth-qty">40u</div>
+                    </div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">5 = 400u</div>
+                    <div class="final-desc">
+                        Очищает пол от графити, лужи. Спрей / пена.<br>
+                        <span style="color: #ef4444;">Не для введения — для уборщика.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> <!-- Закрытие .container -->
+</body>
+</html>
