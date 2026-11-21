@@ -295,8 +295,7 @@ body.exp-mode .text-white {
     font-weight: bold;
     color: var(--text-muted); 
     margin-bottom: 4px;
-    display: flex;
-    justify-content: space-between;
+    display: block; 
 }
 
 .comp-formula {
@@ -374,4 +373,16 @@ body.exp-mode .text-white {
     font-weight: bold;
     font-size: 11px;
     margin-top: 4px;
+}
+/* --- ВЫДЕЛЕНИЕ МНОЖИТЕЛЯ x2, x3 И Т.Д. --- */
+.multiplier {
+    color: #fbbf24 !important; /* Яркий желтый */
+    font-size: 14px; /* Чуть крупнее основного текста */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Тень для контраста */
+    margin: 0 2px;
+}
+
+/* В светлой теме сделаем тень посветлее для контраста */
+:root[data-theme="light"] .multiplier {
+    text-shadow: 0 1px 2px rgba(255,255,255,0.8);
 }
