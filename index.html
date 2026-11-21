@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Химия SS14</title>
     <link rel="stylesheet" href="style.css">
+    
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        if (localStorage.getItem('experiment') === 'true') {
+            document.documentElement.classList.add('exp-preload');
+        }
+    </script>
 </head>
 <body>
 
+<button id="exp-toggle" class="exp-toggle">Режим: Обычный</button>
+<button id="theme-toggle" class="theme-toggle">Светлая тема</button>
+
 <div class="container">
-    <!-- HEADER -->
     <div class="header-top">
         <h1 class="header-title">Химия <span>SS14</span></h1>
         <div class="header-subtitle">Для новичков и профессионалов • Оптимизированные рецепты крафта</div>
     </div>
 
-    <!-- ============================================== -->
     <!-- КАТЕГОРИЯ: КРИТИЧЕСКИ ВАЖНЫЕ -->
-    <!-- ============================================== -->
     <div class="category-header">Критически важные</div>
 
     <div class="grid-container">
@@ -28,10 +36,7 @@
                     <span class="k-badge">К1</span>
                     <h2 class="card-title">Салициловая кислота</h2>
                 </div>
-                <div class="card-stats">
-                    100u/менз.<br>
-                    <span class="big-green">4 = 400u</span>
-                </div>
+                <div class="card-stats">100u/менз.<br><span class="big-green">4 = 400u</span></div>
             </div>
             
             <div class="card-content">
@@ -39,30 +44,30 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Серная кислота x2 по 60u</div>
-                    <div class="comp-formula">= Водород 20 + Кислород 40 + Сера 20</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 40 + <span class="reagent" style="--reagent-color: #FFF385">Сера</span> 20</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Инапровалин x3 по 90u</div>
-                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Транексамовая кислота x2 по 90u</div>
-                    <div class="comp-formula">= Инапровалин 30 + Серная 30 + Сахар 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color: #BF8C00">Серная</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Фторсерная кислота x2 по 80u</div>
-                    <div class="comp-formula">= Водород 20 + Калий 20 + Фтор 20 + Серная 20</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color: #C6C8CC">Калий</span> 20 + <span class="reagent" style="--reagent-color: #BA85CC">Фтор</span> 20 + <span class="reagent" style="--reagent-color: #BF8C00">Серная</span> 20</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Гидроксид натрия по 100u</div>
-                    <div class="comp-formula">= Гидроксид 50 (Кислород 25 + Водород 25 <span class="hl-heat">&gt;310K</span>) + Натрий 50</div>
+                    <div class="comp-formula">= Гидроксид 50 (<span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 25 + <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 25 <span class="hl-heat">&gt;310K</span>) + <span class="reagent" style="--reagent-color: #A7B3D6">Натрий</span> 50</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Бикаридин x2 по 90u</div>
-                    <div class="comp-formula">= Инапровалин 45 + Углерод 45</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #731024">Инапровалин</span> 45 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 45</div>
                 </div>
 
-                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+                <div class="section-label">Синтез конечного продукта <span style="color:var(--text-muted)">|</span> В кувшинах</div>
 
                 <div>
                     <div class="synth-step">
@@ -116,34 +121,34 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Столовая соль по 40u</div>
-                    <div class="comp-formula">= Натрий 20 + Хлор 20 <span class="hl-heat">&gt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A7B3D6">Натрий</span> 20 + <span class="reagent" style="--reagent-color: #A2FF00">Хлор</span> 20 <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Аммиак по 40u</div>
-                    <div class="comp-formula">= Водород 30 + Азот 10</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 10</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Карбонат натрия x2 по 80u</div>
-                    <div class="comp-formula">= Соль 20 + Аммиак 20 + Кислород 20 + Углерод 20</div>
+                    <div class="comp-formula">= Соль 20 + Аммиак 20 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 20 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 20</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Фенол x2 по 60u</div>
-                    <div class="comp-formula">= Водород 30 + Кислород 10 + Углерод 20 <span class="hl-heat">&gt;310K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 20 <span class="hl-heat">&gt;310K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Дермалин x2 по 90u</div>
-                    <div class="comp-formula">= Кремний 15 + Углерод 15 + Фосфор 30 + Кислород 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #364266">Кремний</span> 15 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 15 + <span class="reagent" style="--reagent-color: #F5DA9A">Фосфор</span> 30 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Ферсилицит по 80u</div>
-                    <div class="comp-formula">= Железо 40 + Кремний 40 <span class="hl-heat">&gt;310K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #434B4D">Железо</span> 40 + <span class="reagent" style="--reagent-color: #434B4D">Кремний</span> 40 <span class="hl-heat">&gt;310K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Лепоразин по 160u (в кувшине)</div>
-                    <div class="comp-formula">= Ферсилицит 80 + Плазма 1 + Медь 80</div>
+                    <div class="comp-formula">= Ферсилицит 80 + <span class="reagent" style="--reagent-color: #7E009E">Плазма</span> 1 + <span class="reagent" style="--reagent-color: #B05B3C">Медь</span> 80</div>
                 </div>
 
-                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+                <div class="section-label">Синтез конечного продукта <span style="color:var(--text-muted)">|</span> В кувшинах</div>
 
                 <div>
                     <div class="synth-step">
@@ -192,26 +197,26 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Столовая соль по 20u</div>
-                    <div class="comp-formula">= Натрий 10 + Хлор 10 <span class="hl-heat">&gt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A7B3D6">Натрий</span> 10 + <span class="reagent" style="--reagent-color: #A2FF00">Хлор</span> 10 <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Физраствор по 100u</div>
-                    <div class="comp-formula">= Вода 80 + Столовая соль 20</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #75B1F0">Вода</span> 80 + <span class="reagent" style="--reagent-color: #E0E0E0">Столовая соль</span> 20</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Инапровалин по 30u</div>
-                    <div class="comp-formula">= Кислород 10 + Сахар 10 + Углерод 10</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 10 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 10</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Серная кислота по 30u</div>
-                    <div class="comp-formula">= Водород 10 + Кислород 20 + Сера 10</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 20 + <span class="reagent" style="--reagent-color: #FFF385">Сера</span> 10</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Транексамовая кислота по 90u</div>
-                    <div class="comp-formula">= Инапровалин 30 + Серная 30 + Сахар 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color: #BF8C00">Серная</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30</div>
                 </div>
 
-                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+                <div class="section-label">Синтез конечного продукта <span style="color:var(--text-muted)">|</span> В кувшинах</div>
 
                 <div>
                     <div class="synth-step">
@@ -265,10 +270,10 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Дексалин x2 по 60u</div>
-                    <div class="comp-formula">= Плазма 2 + Кислород 40</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #7E009E">Плазма</span> 2 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 40</div>
                 </div>
 
-                <div class="section-label">Синтез конечного продукта <span style="color:#4b5563">|</span> В кувшинах</div>
+                <div class="section-label">Синтез конечного продукта <span style="color:var(--text-muted)">|</span> В кувшинах</div>
 
                 <div>
                     <div class="synth-step">
@@ -299,17 +304,15 @@
         </div>
     </div>
 
-    <!-- ============================================== -->
     <!-- КАТЕГОРИЯ: ВИРУСЫ -->
-    <!-- ============================================== -->
-    <div class="category-header" style="color: #ef4444; margin-top: 30px;">Вирусы</div>
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;">Вирусы</div>
 
     <div class="grid-container">
         <!-- B1: АМБУЗОЛ -->
         <div class="card card-k5">
             <div class="card-header">
                 <div class="card-title-wrapper">
-                    <span class="k-badge" style="background-color: var(--accent-yellow);">В1</span>
+                    <span class="k-badge" style="background-color: var(--accent-yellow); color: var(--badge-text);">В1</span>
                     <h2 class="card-title">Амбузол</h2>
                 </div>
                 <div class="card-stats">400u/кувш.<br><span class="big-green">1 = 400u</span></div>
@@ -319,11 +322,11 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Диловен x2 по 90u</div>
-                    <div class="comp-formula">= Азот 30 + Калий 30 + Кремний 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 30 + <span class="reagent" style="--reagent-color: #C6C8CC">Калий</span> 30 + <span class="reagent" style="--reagent-color: #364266">Кремний</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Аммиак x3 по 100u</div>
-                    <div class="comp-formula">= Водород 75 + Азот 25</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 75 + <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 25</div>
                 </div>
 
                 <div class="section-label">Синтез конечного продукта В КУВШИНЕ</div>
@@ -370,11 +373,11 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Инапровалин x2 по 90u</div>
-                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30 </div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 30 </div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Иммурин x2 по 90u</div>
-                    <div class="comp-formula">= Инапровалин 30 + Сахар 30 + Железо 30 </div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color: #434B4D">Железо</span> 30 </div>
                 </div>
 
                 <div class="section-label">Синтез конечного продукта в кувшине</div>
@@ -411,15 +414,15 @@
                 
                 <div class="component-box">
                     <div class="comp-title">Инапровалин x2 по 90u</div>
-                    <div class="comp-formula">= Кислород 30 + Сахар 30 + Углерод 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Иммурин x2 по 90u</div>
-                    <div class="comp-formula">= Инапровалин 30 + Сахар 30 + Железо 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color: #FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color: #434B4D">Железо</span> 30</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Диловен x2 по 90u</div>
-                    <div class="comp-formula">= Азот 30 + Калий 30 + Кремний 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 30 + <span class="reagent" style="--reagent-color: #C6C8CC">Калий</span> 30 + <span class="reagent" style="--reagent-color: #364266">Кремний</span> 30</div>
                 </div>
 
                 <div class="section-label">Синтез конечного продукта в кувшинах</div>
@@ -448,9 +451,7 @@
         </div>
     </div>
 
-    <!-- ============================================== -->
     <!-- КАТЕГОРИЯ: СИТУАТИВНЫЕ -->
-    <!-- ============================================== -->
     <div class="category-header" style="color: var(--accent-yellow); margin-top: 30px;">Ситуативные</div>
 
     <div class="grid-container">
@@ -458,7 +459,7 @@
         <div class="card card-k5">
             <div class="card-header">
                 <div class="card-title-wrapper">
-                    <span class="k-badge" style="background-color: var(--accent-yellow);">С1</span>
+                    <span class="k-badge" style="background-color: var(--accent-yellow); color: var(--badge-text);">С1</span>
                     <h2 class="card-title">Фалангимин</h2>
                 </div>
                 <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
@@ -467,11 +468,11 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Мутаген по 60u</div>
-                    <div class="comp-formula">= Радий 20 + Хлор 20 + Фосфор 20</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #00FF04">Радий</span> 20 + <span class="reagent" style="--reagent-color: #A2FF00">Хлор</span> 20 + <span class="reagent" style="--reagent-color: #F5DA9A">Фосфор</span> 20</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Хироналин по 60u</div>
-                    <div class="comp-formula">= Кремний 10 + Калий 10 + Азот 10 + Радий 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #364266">Кремний</span> 10 + <span class="reagent" style="--reagent-color: #C6C8CC">Калий</span> 10 + <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 10 + <span class="reagent" style="--reagent-color: #00FF04">Радий</span> 30</div>
                 </div>
 
                 <div class="section-label">Синтез конечного продукта</div>
@@ -496,7 +497,7 @@
                     <div class="final-title">4 = 360u</div>
                     <div class="final-desc">
                         Лечит 2 клеточные за ед., наносит 2 радиации за ед., удаляет ген смерти у растений.<br>
-                        <span style="color: #ef4444;">▲ Радиацию гасим пентеновой (смесь в П2).</span>
+                        <span style="color: var(--accent-red);">▲ Радиацию гасим пентеновой (смесь в П2).</span>
                     </div>
                     <div class="dose-info">Доза: 5-10u • передоза нет</div>
                 </div>
@@ -516,11 +517,11 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Соль по 100u</div>
-                    <div class="comp-formula">= Натрий 50 + Хлор 50 <span class="hl-heat">&gt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A7B3D6">Натрий</span> 50 + <span class="reagent" style="--reagent-color: #A2FF00">Хлор</span> 50 <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Гидроксид x2 по 100u</div>
-                    <div class="comp-formula">= Водород 50 + Кислород 50 <span class="hl-heat">&gt;310K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 50 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 50 <span class="hl-heat">&gt;310K</span></div>
                 </div>
                 
                 <div class="section-label">Синтез конечного продукта</div>
@@ -564,7 +565,7 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Фенол x2 по 80u</div>
-                    <div class="comp-formula">= Водород 60 + Кислород 20 + Углерод 40 <span class="hl-heat">&gt;310K; 120u вход → 80u выход; 3:2</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 60 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 20 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 40 <span class="hl-heat">&gt;310K; 120u вход → 80u выход; 3:2</span></div>
                 </div>
                 
                 <div class="section-label">Синтез конечного продукта</div>
@@ -596,9 +597,7 @@
         </div>
     </div>
 
-    <!-- ============================================== -->
     <!-- КАТЕГОРИЯ: МАТЕРИАЛЫ -->
-    <!-- ============================================== -->
     <div class="category-header" style="color: var(--accent-cyan); margin-top: 30px;">Материалы</div>
 
     <div class="grid-container">
@@ -615,11 +614,11 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Масло по 90u</div>
-                    <div class="comp-formula">= Сварочное топливо 30 + Водород 30 + Углерод 30 <span style="color:var(--text-muted);">(нужно 50u)</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color: #22282B">Углерод</span> 30 <span style="color:var(--text-muted);">(нужно 50u)</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Серная кислота по 30u</div>
-                    <div class="comp-formula">= Водород 10 + Сера 10 + Кислород 20 <span class="hl-heat">(40u вход → 30u выход; нужно 20u)</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color: #FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color: #c4f5ff">Кислород</span> 20 <span class="hl-heat">(40u вход → 30u выход; нужно 20u)</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Пепел по 30u</div>
@@ -654,16 +653,14 @@
                     <div class="final-desc">
                         Материал для крафта (корпуса, детали, тара).<br>
                         <span style="color: var(--highlight-green);">Выход: 10 пластика за варку</span><br>
-                        <span style="color: #ef4444;">▲ Пепел добывается сжиганием масла.</span>
+                        <span style="color: var(--accent-red);">▲ Пепел добывается сжиганием масла.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ============================================== -->
     <!-- КАТЕГОРИЯ: РАЗНОЕ -->
-    <!-- ============================================== -->
     <div class="category-header" style="color: var(--text-muted); margin-top: 30px;">Разное</div>
 
     <div class="grid-container">
@@ -671,7 +668,7 @@
         <div class="card card-k5">
             <div class="card-header">
                 <div class="card-title-wrapper">
-                    <span class="k-badge" style="background-color: var(--accent-yellow);">Р1</span>
+                    <span class="k-badge" style="background-color: var(--accent-yellow); color: var(--badge-text);">Р1</span>
                     <h2 class="card-title">Нестабильный мутаген</h2>
                 </div>
                 <div class="card-stats">30u/менз.<br><span class="big-green">3 = 90u</span></div>
@@ -680,7 +677,7 @@
                 <div class="section-label">Синтез конечного продукта</div>
                 <div class="component-box" style="margin-bottom: 8px;">
                     <div class="comp-title">Мутаген x3 (по 30u)</div>
-                    <div class="comp-formula">= Радий 10 + Хлор 10 + Фосфор 10</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #00FF04">Радий</span> 10 + <span class="reagent" style="--reagent-color: #A2FF00">Хлор</span> 10 + <span class="reagent" style="--reagent-color: #F5DA9A">Фосфор</span> 10</div>
                 </div>
                 <div>
                     <div class="synth-step">
@@ -703,7 +700,7 @@
                     <div class="final-title">3 = 90u</div>
                     <div class="final-desc">
                         Компонент фаланги. Для ботаника — мутагенез растений.<br>
-                        <span style="color: #ef4444;">Не для введения.</span>
+                        <span style="color: var(--accent-red);">Не для введения.</span>
                     </div>
                 </div>
             </div>
@@ -722,7 +719,7 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Аммиак x2 по 100u</div>
-                    <div class="comp-formula">= Водород 75 + Азот 25</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color: #CCCCCC">Водород</span> 75 + <span class="reagent" style="--reagent-color: #A1E1FF">Азот</span> 25</div>
                 </div>
 
                 <div class="section-label">Синтез конечного продукта</div>
@@ -742,13 +739,90 @@
                     <div class="final-title">5 = 400u</div>
                     <div class="final-desc">
                         Очищает пол от графити, лужи. Спрей / пена.<br>
-                        <span style="color: #ef4444;">Не для введения — для уборщика.</span>
+                        <span style="color: var(--accent-red);">Не для введения — для уборщика.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-</div> <!-- Закрытие .container -->
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const expToggleBtn = document.getElementById('exp-toggle');
+    const htmlElement = document.documentElement;
+    const bodyElement = document.body;
+
+    // --- Переключение темы ---
+    function updateThemeButtonText(theme) {
+        toggleBtn.innerText = theme === 'dark' ? '☀️ Светлая тема' : '🌙 Тёмная тема';
+    }
+    updateThemeButtonText(htmlElement.getAttribute('data-theme'));
+    toggleBtn.addEventListener('click', () => {
+        const newTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeButtonText(newTheme);
+    });
+
+    // --- Переключение экспериментального режима ---
+    function updateExpButtonText(isExp) {
+        expToggleBtn.innerText = isExp ? 'Режим: Экспериментальный' : 'Режим: Обычный';
+    }
+
+    // --- АВТОМАТИЧЕСКИЙ ПОДБОР ЦВЕТА ТЕКСТА ---
+    function fixReagentColors() {
+        document.querySelectorAll('.reagent').forEach(el => {
+            const color = el.style.getPropertyValue('--reagent-color').trim();
+            if (!color) return;
+            
+            // Преобразуем HEX в RGB
+            let r, g, b;
+            if (color.startsWith('#')) {
+                let hex = color.substring(1);
+                if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+                r = parseInt(hex.substring(0, 2), 16);
+                g = parseInt(hex.substring(2, 4), 16);
+                b = parseInt(hex.substring(4, 6), 16);
+            } else {
+                return; // Если формат не HEX, пропускаем
+            }
+            
+            // Вычисляем яркость (YIQ)
+            const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+            
+            // Если фон светлый -> черный текст, если темный -> белый
+            const textColor = (yiq >= 128) ? '#000' : '#fff';
+            const borderColor = (yiq >= 128) ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.5)';
+            
+            // Жестко применяем цвет через JS
+            el.style.setProperty('color', textColor, 'important');
+            el.style.setProperty('-webkit-text-fill-color', textColor, 'important');
+            el.style.setProperty('border-color', borderColor, 'important');
+        });
+    }
+
+    if (localStorage.getItem('experiment') === 'true') {
+        bodyElement.classList.add('exp-mode');
+        updateExpButtonText(true);
+        // Небольшая задержка, чтобы DOM успел отрисоваться
+        setTimeout(fixReagentColors, 100); 
+    } else {
+        updateExpButtonText(false);
+    }
+
+    expToggleBtn.addEventListener('click', () => {
+        bodyElement.classList.toggle('exp-mode');
+        const isExp = bodyElement.classList.contains('exp-mode');
+        localStorage.setItem('experiment', isExp);
+        updateExpButtonText(isExp);
+        
+        // Применяем цвета при включении
+        if (isExp) {
+            setTimeout(fixReagentColors, 50);
+        }
+    });
+</script>
+
 </body>
 </html>

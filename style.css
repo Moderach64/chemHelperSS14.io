@@ -1,16 +1,57 @@
+/* --- ТЕМНАЯ ТЕМА (По умолчанию) --- */
 :root {
     --bg-main: #0b0e14;
     --bg-card: #141820;
     --bg-comp: #1c222d;
+    --bg-synth-step: #1a1f29;
     --text-main: #e2e8f0;
     --text-muted: #8b949e;
+    
     --accent-purple: #a855f7;
     --accent-cyan: #06b6d4;
     --accent-green: #10b981;
     --accent-red: #ef4444;
     --accent-yellow: #f59e0b;
-    --border-color: #2d333b;
     --highlight-green: #34d399;
+    
+    --border-color: #2d333b;
+    --shadow-color: rgba(0,0,0,0.3);
+    --title-shadow: 0 0 10px rgba(255,255,255,0.2);
+    
+    --badge-text: #000;
+    --white-badge-text: #fff;
+    
+    --final-bg: rgba(52, 211, 153, 0.1);
+    --final-border: var(--highlight-green);
+    --dose-color: #60a5fa;
+}
+
+/* --- СВЕТЛАЯ ТЕМА --- */
+:root[data-theme="light"] {
+    --bg-main: #f4f1eb;
+    --bg-card: #ebe7df;
+    --bg-comp: #e3ddd2;
+    --bg-synth-step: #e5e0d6;
+    --text-main: #1d170f;
+    --text-muted: #746b61;
+    
+    --accent-purple: #57aa08;
+    --accent-cyan: #f9492b;
+    --accent-green: #ef467e;
+    --accent-red: #10bbbb;
+    --accent-yellow: #0a61f4;
+    --highlight-green: #cb2c66;
+    
+    --border-color: #d2ccc4;
+    --shadow-color: rgba(255,255,255,0.3);
+    --title-shadow: 0 0 10px rgba(0,0,0,0.2);
+    
+    --badge-text: #fff;
+    --white-badge-text: #000;
+    
+    --final-bg: rgba(203, 44, 102, 0.1);
+    --final-border: var(--highlight-green);
+    --dose-color: #9f5a05;
 }
 
 body {
@@ -22,6 +63,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
@@ -29,10 +71,66 @@ body {
     max-width: 1400px;
 }
 
+/* --- КНОПКИ В УГЛАХ --- */
+.theme-toggle, .exp-toggle {
+    position: fixed;
+    top: 20px;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: all 0.2s;
+}
+
+.theme-toggle { right: 20px; }
+.exp-toggle { left: 20px; }
+
+.theme-toggle:hover, .exp-toggle:hover {
+    background-color: var(--bg-comp);
+}
+
+/* --- ЭКСПЕРИМЕНТАЛЬНЫЙ РЕЖИМ (Цвета реагентов) --- */
+.reagent {
+    transition: all 0.2s;
+}
+
+body.exp-mode .reagent {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    background-color: var(--reagent-color, transparent);
+    /* Обводку и цвет текста теперь будет задавать JS */
+    border: 1px solid transparent; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    text-shadow: none; 
+    margin: 0 2px;
+    forced-color-adjust: none; 
+}
+
+/* Жестко задаем цвет для светлых фонов */
+body.exp-mode .text-black { 
+    color: #000 !important; 
+    -webkit-text-fill-color: #000 !important; /* Принудительная заливка текста */
+}
+
+/* Жестко задаем цвет для темных фонов */
+body.exp-mode .text-white { 
+    color: #fff !important; 
+    -webkit-text-fill-color: #fff !important; /* Принудительная заливка текста */
+}
+
 /* --- HEADER --- */
 .header-top {
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .header-title {
@@ -40,13 +138,13 @@ body {
     font-weight: 900;
     margin: 0;
     letter-spacing: 1px;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+    color: var(--text-main);
+    text-shadow: var(--title-shadow);
 }
 
 .header-title span {
     color: var(--accent-cyan);
-    text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+    text-shadow: var(--title-shadow);
 }
 
 .header-subtitle {
@@ -54,32 +152,6 @@ body {
     font-size: 14px;
     margin-top: 5px;
 }
-
-/* --- LEGEND BAR --- */
-.legend-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 25px;
-    background: #11151c;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-
-.legend-item {
-    font-size: 12px;
-    color: #cbd5e1;
-    background: #1a202c;
-    padding: 4px 10px;
-    border-radius: 12px;
-    border: 1px solid #2d3748;
-}
-
-.legend-item span.hl { color: var(--accent-yellow); font-weight: bold; }
-.legend-item span.hl-cyan { color: var(--accent-cyan); font-weight: bold; }
-.legend-item span.hl-green { color: var(--highlight-green); font-weight: bold; }
 
 /* --- CATEGORY HEADER --- */
 .category-header {
@@ -117,7 +189,8 @@ body {
     display: flex; 
     flex-direction: column;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .card-wide {
@@ -158,7 +231,7 @@ body {
 
 .k-badge {
     background-color: var(--accent-purple);
-    color: #000;
+    color: var(--white-badge-text);
     font-weight: bold;
     font-size: 12px;
     padding: 2px 6px;
@@ -174,7 +247,7 @@ body {
 .card-title {
     font-size: 16px;
     font-weight: bold;
-    color: #fff;
+    color: var(--text-main);
     margin: 0;
 }
 
@@ -227,7 +300,7 @@ body {
 }
 
 .comp-formula {
-    color: #e2e8f0; 
+    color: var(--text-main); 
     font-size: 13px;
 }
 
@@ -238,7 +311,7 @@ body {
 .synth-step {
     display: flex;
     align-items: center;
-    background-color: #1a1f29;
+    background-color: var(--bg-synth-step);
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 13px;
@@ -268,13 +341,13 @@ body {
     font-weight: bold;
 }
 
-.synth-sep { color: #4b5563; margin: 0 6px; }
+.synth-sep { color: var(--text-muted); margin: 0 6px; }
 .synth-jug { color: var(--text-muted); }
 
 /* --- FINAL OUTPUT --- */
 .final-output {
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px dashed #059669;
+    background: var(--final-bg);
+    border: 1px dashed var(--final-border);
     border-radius: 6px;
     padding: 10px;
     margin-top: auto;
@@ -292,12 +365,12 @@ body {
 
 .final-desc {
     font-size: 11px;
-    color: #a1a1aa;
+    color: var(--text-muted);
     line-height: 1.4;
 }
 
 .dose-info {
-    color: #60a5fa;
+    color: var(--dose-color);
     font-weight: bold;
     font-size: 11px;
     margin-top: 4px;
