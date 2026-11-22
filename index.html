@@ -18,6 +18,16 @@
 <button id="exp-toggle" class="exp-toggle">Режим: Обычный</button>
 <button id="theme-toggle" class="theme-toggle">Светлая тема</button>
 
+<nav class="side-nav" aria-label="Навигация по категориям">
+    <div class="side-nav-label">Категории</div>
+    <button type="button" data-target="cat-k">Критически важные</button>
+    <button type="button" data-target="cat-v">Вирусы</button>
+    <button type="button" data-target="cat-s">Ситуативные</button>
+    <button type="button" data-target="cat-r">Разное</button>
+    <button type="button" data-target="cat-combat" class="nav-combat">Боевые стимуляторы</button>
+    <button type="button" data-target="cat-bombs" class="nav-combat">Бомбы</button>
+</nav>
+
 <div class="container">
     <div class="header-top">
         <h1 class="header-title">Химия <span>SS14</span></h1>
@@ -31,12 +41,12 @@
     </div>
 
     <!-- КАТЕГОРИЯ: КРИТИЧЕСКИ ВАЖНЫЕ -->
-    <div class="category-header">Критически важные</div>
+    <div class="category-header" id="cat-k">Критически важные</div>
 
     <div class="grid-container">
 
         <!-- K1: ПЕНТЕНОВАЯ -->
-        <div class="card card-k1">
+        <div class="card card-k1" style="--card-color: #a855f7;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge">К1</span><h2 class="card-title">Пентеновая кислота</h2></div>
                 <div class="card-stats">100u/менз.<br><span class="big-green">4 = 400u</span></div>
@@ -92,7 +102,7 @@
         </div>
 
         <!-- K2: ОКСАНДРОЛОН -->
-        <div class="card card-k2">
+        <div class="card card-k2" style="--card-color: #06b6d4;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge">К2</span><h2 class="card-title">Оксандролон</h2></div>
                 <div class="card-stats">100u/менз.<br><span class="big-green">4 = 400u</span></div>
@@ -122,7 +132,7 @@
         </div>
 
         <!-- K3: АРТИПЛАСТИНЫ -->
-        <div class="card card-k3">
+        <div class="card card-k3" style="--card-color: #10b981;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge">К3</span><h2 class="card-title">Артипластины</h2></div>
                 <div class="card-stats">70u/менз.<br><span class="big-green">6 = 420u</span></div>
@@ -151,17 +161,29 @@
         </div>
 
         <!-- K4: ТИРУЕМОЛ -->
-        <div class="card card-k4">
+        <div class="card card-k4" style="--card-color: #ef4444;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-red);color:#fff;">К4</span><h2 class="card-title">Тируемол</h2></div>
-                <div class="card-stats">200u партия<br><span class="big-green">1 = 200u</span></div>
+                <div class="card-stats">200u/кувш.<br><span class="big-green">2 = 400u</span></div>
             </div>
             <div class="card-content">
                 <div class="section-label">Промежуточные компоненты</div>
-                <div class="component-box"><div class="comp-title">Масло 60u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 20</div></div>
-                <div class="component-box"><div class="comp-title">Ацетон <span class="multiplier">x2</span> по 50u</div><div class="comp-formula">= Масло 25 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 25 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 25</div></div>
-                <div class="component-box"><div class="comp-title">Полиакрилат натрия 60u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 15 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 15</div></div>
-                <div class="component-box"><div class="comp-title">Серная кислота 60u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 40 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 20</div></div>
+                <div class="component-box">
+                    <div class="comp-title">Масло 60u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 20</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Ацетон 100u</div>
+                    <div class="comp-formula">= Масло 50 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 50 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 50</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Полиакрилат натрия 50u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 12.5 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 25 + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 12.5</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота 50u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 16.67 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 33.33 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 16.67</div>
+                </div>
                 <div class="section-label">Синтез конечного продукта в кувшине 200u</div>
                 <div>
                     <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Ацетон</div><div class="synth-qty">100u</div></div>
@@ -169,15 +191,15 @@
                     <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Серная кислота</div><div class="synth-qty">50u</div></div>
                 </div>
                 <div class="final-output">
-                    <div class="final-title">1 = 200u</div>
-                    <div class="final-desc">Лечит 6 удушения за ед. Изменяет кровотечение на -0.25</div>
+                    <div class="final-title">2 = 400u</div>
+                    <div class="final-desc">Смешать в кувшине 100+50+50 = 200u. Повторить 2 раза для 400u.</div>
                     <div class="dose-info">Доза: 10–15u</div>
                 </div>
             </div>
         </div>
 
         <!-- K5: САЛИЦИЛОВАЯ -->
-        <div class="card card-k5">
+        <div class="card card-k5" style="--card-color: #f59e0b;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="color:var(--badge-text);">К5</span><h2 class="card-title">Салициловая кислота</h2></div>
                 <div class="card-stats">100u/менз.<br><span class="big-green">4 = 400u</span></div>
@@ -209,10 +231,11 @@
     </div>
 
     <!-- КАТЕГОРИЯ: ВИРУСЫ -->
-    <div class="category-header" style="color:var(--accent-red);margin-top:30px;">Вирусы</div>
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-v">Вирусы</div>
 
+    <!-- ИСПРАВЛЕННЫЙ КЛАСС -->
     <div class="grid-container">
-        <div class="card card-k5">
+        <div class="card card-k5" style="--card-color: #f59e0b;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">В1</span><h2 class="card-title">Амбузол</h2></div>
                 <div class="card-stats">400u/кувш.<br><span class="big-green">1 = 400u</span></div>
@@ -235,7 +258,7 @@
             </div>
         </div>
 
-        <div class="card card-k6">
+        <div class="card card-k6" style="--card-color: #3b82f6;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:#3b82f6;">В2</span><h2 class="card-title">Девирейт</h2></div>
                 <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
@@ -256,7 +279,7 @@
             </div>
         </div>
 
-        <div class="card card-k1">
+        <div class="card card-k1" style="--card-color: #ec4899;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:#ec4899;">В3</span><h2 class="card-title">Космоцилин</h2></div>
                 <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
@@ -281,10 +304,10 @@
     </div>
 
     <!-- КАТЕГОРИЯ: СИТУАТИВНЫЕ -->
-    <div class="category-header" style="color:var(--accent-yellow);margin-top:30px;">Ситуативные</div>
+    <div class="category-header" style="color: var(--accent-yellow); margin-top: 30px;" id="cat-s">Ситуативные</div>
 
     <div class="grid-container">
-        <div class="card card-k5">
+        <div class="card card-k5" style="--card-color: #f59e0b;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">С1</span><h2 class="card-title">Фалангимин</h2></div>
                 <div class="card-stats">90u/менз.<br><span class="big-green">4 = 360u</span></div>
@@ -307,7 +330,7 @@
             </div>
         </div>
 
-        <div class="card card-k2">
+        <div class="card card-k2" style="--card-color: #06b6d4;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">С2</span><h2 class="card-title">Окулин</h2></div>
                 <div class="card-stats">80u/менз.<br><span class="big-green">5 = 400u</span></div>
@@ -330,7 +353,7 @@
             </div>
         </div>
 
-        <div class="card card-k4">
+        <div class="card card-k4" style="--card-color: #ef4444;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-red);">С3</span><h2 class="card-title">Морфин</h2></div>
                 <div class="card-stats">80u/менз.<br><span class="big-green">3 = 240u</span></div>
@@ -353,20 +376,22 @@
         </div>
     </div>
 
-    <!-- КАТЕГОРИЯ: МАТЕРИАЛЫ -->
-    <div class="category-header" style="color:var(--accent-cyan);margin-top:30px;">Материалы</div>
+    <!-- КАТЕГОРИЯ: РАЗНОЕ -->
+    <div class="category-header" style="color: var(--text-muted); margin-top: 30px;" id="cat-r">Разное</div>
 
     <div class="grid-container">
-        <div class="card card-k2 card-wide">
+        
+        <!-- ПЛАСТИК -->
+        <div class="card card-k2" style="--card-color: #a7b3d6;">
             <div class="card-header">
-                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">М1</span><h2 class="card-title">Пластик</h2></div>
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р1</span><h2 class="card-title">Пластик</h2></div>
                 <div class="card-stats"><span class="big-green">10 пластика</span></div>
             </div>
             <div class="card-content">
                 <div class="section-label">Промежуточные компоненты</div>
-                <div class="component-box"><div class="comp-title">Масло по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30 <span style="color:var(--text-muted);">(нужно 50u)</span></div></div>
-                <div class="component-box"><div class="comp-title">Серная кислота по 30u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20 <span style="color:var(--text-muted);">(40u вход → 30u выход; нужно 20u)</span></div></div>
-                <div class="component-box"><div class="comp-title">Пепел по 30u</div><div class="comp-formula">= Сжигание масла <span style="color:var(--text-muted);">(нужно 30u)</span></div></div>
+                <div class="component-box"><div class="comp-title">Масло по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30</div></div>
+                <div class="component-box"><div class="comp-title">Серная кислота по 30u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20</div></div>
+                <div class="component-box"><div class="comp-title">Пепел по 30u</div><div class="comp-formula">= Сжигание масла</div></div>
                 <div class="section-label">Синтез — 10 ШТУК</div>
                 <div>
                     <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Масло</div><div class="synth-qty">50u</div></div>
@@ -379,15 +404,11 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- КАТЕГОРИЯ: РАЗНОЕ -->
-    <div class="category-header" style="color:var(--text-muted);margin-top:30px;">Разное</div>
-
-    <div class="grid-container">
-        <div class="card card-k5">
+        <!-- Р2: НЕСТАБИЛЬНЫЙ МУТАГЕН -->
+        <div class="card card-k5" style="--card-color: #00FF04;">
             <div class="card-header">
-                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">Р1</span><h2 class="card-title">Нестабильный мутаген</h2></div>
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">Р2</span><h2 class="card-title">Нестабильный мутаген</h2></div>
                 <div class="card-stats">30u/менз.<br><span class="big-green">3 = 90u</span></div>
             </div>
             <div class="card-content">
@@ -408,9 +429,10 @@
             </div>
         </div>
 
-        <div class="card card-k2">
+        <!-- Р3: КОСМИЧЕСКИЙ ОЧИСТИТЕЛЬ -->
+        <div class="card card-k2" style="--card-color: #06b6d4;">
             <div class="card-header">
-                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р2</span><h2 class="card-title">Космический очиститель</h2></div>
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р3</span><h2 class="card-title">Космический очиститель</h2></div>
                 <div class="card-stats">80u/менз.<br><span class="big-green">5 = 400u</span></div>
             </div>
             <div class="card-content">
@@ -424,6 +446,284 @@
                 <div class="final-output">
                     <div class="final-title">5 = 400u</div>
                     <div class="final-desc">Очищает пол от граффити, лужи. Спрей / пена.<br><span style="color:var(--accent-red);">Не для введения — для уборщика.</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- КАТЕГОРИЯ: БОЕВЫЕ СТИМУЛЯТОРЫ -->
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-combat">Боевые стимуляторы и химикаты </div>
+
+    <div class="legal-warning">
+        <b>⚠ Статья 43Х КЗ</b>
+        <span>Изготовление, хранение и распространение препаратов из этой категории приравнивается к производству боевых стимуляторов и карается тюремным сроком ( по крайней мере вопросы точно появяться ).</span>
+    </div>
+
+    <div class="grid-container">
+
+        <!-- Б1: ЭФЕДРИН -->
+        <div class="card card-k5" style="--card-color: #f59e0b;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: var(--accent-yellow); color: var(--badge-text);">Б1</span><h2 class="card-title">Эфедрин</h2></div>
+                <div class="card-stats">100u партия<br><span class="big-green">1 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Масло 90u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Диэтиламин 80u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 10 + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 40</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Масло</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Диэтиламин</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Водород</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">4</div><div class="synth-name">Сахар</div><div class="synth-qty">25u</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 = 100u</div>
+                    <div class="final-desc">
+                        Скорость ×1.25 (4 сек/ед) · −1 сек оглушения/нокаута в секунду · избавляет от нарколепсии (10 мин при ≥30u) · −20 сек сонливости за ед. · при ≥20u: 4 яда + 4 удушья/ед.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Не складывается.</b> Нарколептикам — 30u каждые 10 минут.
+                        <br><span style="color: var(--accent-red);">⚠ Статья 43Х КЗ — производство карается тюремным сроком.</span>
+                    </div>
+                    <div class="dose-info">Доза: 10–20u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Б2: МЕТАМФЕТАМИН -->
+        <div class="card card-k2" style="--card-color: #06b6d4;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #3b82f6;">Б2</span><h2 class="card-title">Метамфетамин</h2></div>
+                <div class="card-stats">100u партия<br><span class="big-green">1 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Эфедрин 100u</div>
+                    <div class="comp-formula">= 1 мензурка по рецепту Б1 (Масло 25 + Диэтиламин 25 + Водород 25 + Сахар 25)</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта (>370K)</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Эфедрин</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Йод</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Фосфор</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">4</div><div class="synth-name">Углерод</div><div class="synth-qty">25u</div></div>
+                    <div class="synth-step"><div class="synth-num">5</div><div class="synth-name">Нагреть</div><div class="synth-qty hl-heat">&gt;370K</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 = 100u</div>
+                    <div class="final-desc">
+                        Постоянно наносит <b>1.5 яда/ед</b> · скорость ×1.35 (4 сек/ед) · −3 сек оглушения/нокаута (заковать невозможно) · избавляет от нарколепсии (10 мин при ≥30u) · −20 сек сонливости за ед. · при ≥30u: 4 яда + 4 удушья/ед.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Не складывается.</b> Нарколептикам — 30u каждые 10 минут.
+                        <br><span style="color: var(--accent-red);">⚠ Статья 43Х КЗ — производство карается тюремным сроком.</span>
+                    </div>
+                    <div class="dose-info">Доза: 15–30u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Б3: АРАНЕСП -->
+        <div class="card card-k1" style="--card-color: #a855f7;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #a855f7; color: #fff;">Б3</span><h2 class="card-title">Аранесп</h2></div>
+                <div class="card-stats">30u/цикл<br><span class="big-green">3 цикла = 90u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">1. Метамфетамин — 100u</div>
+                <div class="component-box">
+                    <div class="comp-title">Эфедрин 25u</div>
+                    <div class="comp-formula">= 1 мензурка по рецепту Б2 (Масло 25 + Диэтиламин 25 + Водород 25 + Сахар 25)</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Варка метамфетамина</div>
+                    <div class="comp-formula">= Эфедрин 25 + Йод 25 + Фосфор 25 + Углерод 25 → 100u <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="section-label">2. Эпинефрин — x2 по 80u</div>
+                <div class="component-box">
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 15 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 5 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 5 → 25u масла</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-formula">= Масло 25u + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 15 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 10 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 → 80u эпинефрина <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="section-label">3. Дифенгидрамин — x2 по 60u</div>
+                <div class="component-box">
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 10 + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 40 → 80u</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30 → 90u</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 10 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 10 → 20u <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-formula">= Диэтиламин 20u + Масло 20u + Соль 20u + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20u + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 20u <span class="hl-heat">&gt;377.59K, &lt;520K</span></div>
+                </div>
+                <div class="section-label">4. Синтез конечного продукта — x3 (по 30u)</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Метамфетамин</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Эпинефрин</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Дифенгидрамин</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">4</div><div class="synth-name" style="color:var(--highlight-green);">Выход</div><div class="synth-qty">30u за цикл</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">3 = 90u (вход 270u)</div>
+                    <div class="final-desc">
+                        +20 стамины/тик · иммунитет к замедлению от урона (10 сек/ед) · скорость ×1.25 (4 сек/ед) · −2 сек оглушения/нокаута · лечит 2 мех / 0.5 термич / 0.5 электр / 0.5 обмор / 0.5 радиации за ед. · наносит 0.5 яда + 0.5 удушья за ед.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Варится крайне дорого</b> — соотношение вход:выход ≈ 13:1.
+                        <br><span style="color: var(--accent-red);">⚠ Статья 43Х КЗ — производство карается тюремным сроком.</span>
+                    </div>
+                    <div class="dose-info">Доза: 30u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Б4: ПАКС -->
+        <div class="card card-k1" style="--card-color: #ec4899;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #ec4899;">Б4</span><h2 class="card-title">Пакс</h2></div>
+                <div class="card-stats">90u партия<br><span class="big-green">1 = 90u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Синаптизин 90u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#c0c8ff">Литий</span> 30 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color:#75B1F0">Вода</span> 30 → 90u</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Диловен 90u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 30 + <span class="reagent" style="--reagent-color:#C6C8CC">Калий</span> 30 + <span class="reagent" style="--reagent-color:#364266">Кремний</span> 30 → 90u</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Токсин майндбрейкер 90u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#364266">Кремний</span> 30 + Диловен 30 → 90u</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Вода</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Синаптизин</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Токсин майндбрейкер</div><div class="synth-qty">30u</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 = 90u</div>
+                    <div class="final-desc">
+                        При введении делает жертву <b>пацифистом</b> (не может наносить урон живым существам любыми способами) на <b>4 секунды за единицу</b>.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">10u</b> ≈ 40 сек · <b style="color: var(--accent-cyan);">22u</b> ≈ 88 сек.
+                    </div>
+                    <div class="dose-info">Доза: 10–22u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Б5: ХЛОРАЛГИДРАТ -->
+        <div class="card card-k2" style="--card-color: #06b6d4;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: var(--accent-cyan);">Б5</span><h2 class="card-title">Хлоралгидрат</h2></div>
+                <div class="card-stats">20u/менз.<br><span class="big-green">×5 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Синтез конечного продукта (20u за раз)</div>
+                <div class="component-box">
+                    <div class="comp-title">Вход (100u)</div>
+                    <div class="comp-formula"><span class="reagent" style="--reagent-color:#75B1F0">Вода</span> 20 + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 20 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 60</div>
+                </div>
+                <div class="component-box">
+                    <div class="comp-title">Выход</div>
+                    <div class="comp-formula"><b style="color: var(--highlight-green);">20u хлоралгидрата</b> <span style="color:var(--text-muted);">(крадут пятую часть)</span></div>
+                </div>
+                <div class="section-label">Повтор для партии</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Вода</div><div class="synth-qty">20u × 5</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Этанол</div><div class="synth-qty">20u × 5</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Хлор</div><div class="synth-qty">60u × 5</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">×5 = 100u (вход 500u)</div>
+                    <div class="final-desc">
+                        Сонливость <b>8 сек/ед</b> · скорость ×0.65 (4 сек/ед) · при ≥20u: 3 яда/ед.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Снотворное:</b> цель засыпает через несколько секунд, а не мгновенно (в отличие от ноктюрина).
+                    </div>
+                    <div class="dose-info">Доза: 5–15u</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- КАТЕГОРИЯ: БОМБЫ -->
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-bombs">Бомбы !!ВАРКА И ХРАНЕНИЕ СУГУБО В КРИОСТАЗИСНЫХ МЕНЗУРКАХ!!</div>
+
+    <div class="legal-warning">
+        <b>⚠ Статья 43Х КЗ</b>
+        <span>Изготовление взрывчатых веществ без разрешения приравнивается к терроризму и карается тюремным сроком. </span>
+    </div>
+
+    <div class="grid-container">
+
+        <!-- ЭМИ-ВЗРЫВ -->
+        <div class="card card-k2" style="--card-color: #7c3aed;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #7c3aed; color: #fff;">Э</span><h2 class="card-title">ЭМИ-взрыв</h2></div>
+                <div class="card-stats">криомензурка 60u<br><span class="big-green">30u = макс.</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Состав (1:1:1)</div>
+                <div class="component-box">
+                    <div class="comp-title">Рецепт 30u — максимальная мощность</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#C0C0C0">Алюминий</span> 10 + <span class="reagent" style="--reagent-color:#434B4D">Железо</span> 10 + <span class="reagent" style="--reagent-color:#7FFF7F">Уран</span> 10</div>
+                </div>
+                <div class="section-label">Мощность</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">10u</div><div class="synth-qty">2 тайла</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">20u</div><div class="synth-qty">4 тайла</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">30u — максимум</div><div class="synth-qty">6 тайлов</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 мензурка = 1 максимальный взрыв</div>
+                    <div class="final-desc">
+                        Криомензурка (60u) — препараты <b>не смешиваются</b>, поэтому 30u готового ЭМИ можно хранить рядом с 30u другого.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Через шприцемёт:</b> заряди крио-шприц (15u) и выстрели в цель — взрыв будет происходить <b>каждый тик</b> смешивания химикатов в организме. Урон свет/звук (ослепление + глухота).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СВЕТОШУМОВОЙ ВЗРЫВ -->
+        <div class="card card-k5" style="--card-color: #f59e0b;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: var(--accent-yellow); color: var(--badge-text);">С</span><h2 class="card-title">Светошумовой взрыв</h2></div>
+                <div class="card-stats">криомензурка 60u<br><span class="big-green">30u = макс.</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Состав (1:1:1)</div>
+                <div class="component-box">
+                    <div class="comp-title">Рецепт 30u — максимальная мощность</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#C0C0C0">Алюминий</span> 10 + <span class="reagent" style="--reagent-color:#C6C8CC">Калий</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10</div>
+                </div>
+                <div class="section-label">Мощность</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">10u</div><div class="synth-qty">2 тайла</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">20u</div><div class="synth-qty">4 тайла</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">30u — максимум</div><div class="synth-qty">6 тайлов</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 мензурка = 1 максимальный взрыв</div>
+                    <div class="final-desc">
+                        Криомензурка (60u) — препараты <b>не смешиваются</b>, можно хранить рядом с другими реагентами.
+                        <br><br>
+                        <b style="color: var(--accent-cyan);">Через шприцемёт:</b> заряди крио-шприц (15u) и выстрели в цель — взрыв будет происходить <b>каждый тик</b> смешивания химикатов в организме. Урон свет/звук (ослепление + глухота).
+                    </div>
                 </div>
             </div>
         </div>
@@ -495,6 +795,14 @@
             });
         }
     });
+
+    // --- Боковая навигация по категориям ---
+    document.querySelectorAll('.side-nav button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = document.getElementById(btn.dataset.target);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });    
 </script>
 
 </body>
