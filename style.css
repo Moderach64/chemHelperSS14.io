@@ -106,7 +106,6 @@ body.exp-mode .reagent {
     border-radius: 4px;
     font-weight: bold;
     background-color: var(--reagent-color, transparent);
-    /* Обводку и цвет текста теперь будет задавать JS */
     border: 1px solid transparent; 
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     text-shadow: none; 
@@ -117,13 +116,13 @@ body.exp-mode .reagent {
 /* Жестко задаем цвет для светлых фонов */
 body.exp-mode .text-black { 
     color: #000 !important; 
-    -webkit-text-fill-color: #000 !important; /* Принудительная заливка текста */
+    -webkit-text-fill-color: #000 !important; 
 }
 
 /* Жестко задаем цвет для темных фонов */
 body.exp-mode .text-white { 
     color: #fff !important; 
-    -webkit-text-fill-color: #fff !important; /* Принудительная заливка текста */
+    -webkit-text-fill-color: #fff !important; 
 }
 
 /* --- HEADER --- */
@@ -171,12 +170,10 @@ body.exp-mode .text-white {
     font-size: 14px;
 }
 
-/* --- GRID LAYOUT --- */
+/* --- GRID LAYOUT (Колонки) --- */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    align-items: start;
+    column-count: 3; 
+    column-gap: 16px;
     margin-bottom: 30px;
 }
 
@@ -186,15 +183,31 @@ body.exp-mode .text-white {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    display: flex; 
+    display: inline-flex; 
     flex-direction: column;
     width: 100%;
     box-shadow: 0 4px 6px var(--shadow-color);
     transition: background-color 0.3s, border-color 0.3s;
+    break-inside: avoid; 
+    margin-bottom: 16px;
+    position: relative; /* Для цветного слоя */
 }
 
-.card-wide {
-    grid-column: span 3;
+/* Цветной слой фона в экспериментальном режиме */
+body.exp-mode .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--card-color, transparent);
+    opacity: 0.15; /* Легкий оттенок цвета */
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.card-header, .card-content {
+    position: relative;
+    z-index: 1; /* Текст поверх слоя */
 }
 
 .card-header {
@@ -203,7 +216,6 @@ body.exp-mode .text-white {
     align-items: flex-start;
     padding: 12px 16px;
     border-bottom: 1px solid var(--border-color);
-    position: relative;
 }
 
 .card-header::before {
@@ -374,15 +386,14 @@ body.exp-mode .text-white {
     font-size: 11px;
     margin-top: 4px;
 }
-/* --- ВЫДЕЛЕНИЕ МНОЖИТЕЛЯ x2, x3 И Т.Д. --- */
+
+/* --- ВЫДЕЛЕНИЕ МНОЖИТЕЛЯ --- */
 .multiplier {
-    color: #fbbf24 !important; /* Яркий желтый */
-    font-size: 14px; /* Чуть крупнее основного текста */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.8); /* Тень для контраста */
+    color: #fbbf24 !important;
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
     margin: 0 2px;
 }
-
-/* В светлой теме сделаем тень посветлее для контраста */
 :root[data-theme="light"] .multiplier {
     text-shadow: 0 1px 2px rgba(255,255,255,0.8);
 }
@@ -404,6 +415,90 @@ body.exp-mode .text-white {
     border-radius: 12px;
     white-space: nowrap;
 }
-.chip b {
+.chip b { color: var(--accent-cyan); }
+
+/* --- Боковая навигация --- */
+.side-nav {
+    position: fixed;
+    left: 16px;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 999;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    max-height: 82vh;
+    overflow-y: auto;
+}
+
+.side-nav-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+.side-nav button {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--text-main);
+    background-color: var(--bg-comp);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: left;
+    white-space: nowrap;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.side-nav button:hover {
+    background-color: var(--bg-synth-step);
+    border-color: var(--accent-cyan);
     color: var(--accent-cyan);
+}
+.side-nav button.nav-combat {
+    border-color: rgba(239, 68, 68, 0.45);
+    color: #ffb3b3;
+}
+.side-nav button.nav-combat:hover {
+    color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+/* Пометка про статью 43Х КЗ */
+.legal-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px dashed var(--accent-red);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    color: var(--text-main);
+    line-height: 1.45;
+}
+.legal-warning b {
+    color: var(--accent-red);
+    white-space: nowrap;
+}
+
+/* Адаптив для узких экранов */
+@media (max-width: 1100px) {
+    .grid-container { column-count: 2; }    
+    .side-nav { display: none; }
+}
+@media (max-width: 700px) {
+    .grid-container { column-count: 1; }
 }
