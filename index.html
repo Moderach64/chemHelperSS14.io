@@ -25,7 +25,7 @@
     <button type="button" data-target="cat-s">Ситуативные</button>
     <button type="button" data-target="cat-r">Разное</button>
     <button type="button" data-target="cat-combat" class="nav-combat">Боевые стимуляторы</button>
-    <button type="button" data-target="cat-bombs" class="nav-combat">Бомбы</button>
+    <button type="button" data-target="cat-pyro" class="nav-combat">Пиротехника</button>
 </nav>
 
 <div class="container">
@@ -75,11 +75,11 @@
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Цианид <span class="multiplier">x2</span> по 90u</div>
-                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#B67823">Масло</span> 30 + <span class="reagent" style="--reagent-color:#77B58E">Аммиак</span> 30 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#B67823">Масло</span> 30 + <span class="reagent" style="--reagent-color:#77B58E">Аммиак</span> 30 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30 <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Галоперидол по 100u</div>
-                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#B67823">Масло</span> 20 + <span class="reagent" style="--reagent-color:#F0F0F0">Йодистый калий</span> 20 + <span class="reagent" style="--reagent-color:#C0C0C0">Алюминий</span> 20 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 + <span class="reagent" style="--reagent-color:#BA85CC">Фтор</span> 20 <span class="hl-heat">&lt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#B67823">Масло</span> 20 + <span class="reagent" style="--reagent-color:#F0F0F0">Йодистый калий</span> 20 + <span class="reagent" style="--reagent-color:#C0C0C0">Алюминий</span> 20 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 + <span class="reagent" style="--reagent-color:#BA85CC">Фтор</span> 20</div>
                 </div>
                 <div class="section-label">Синтез конечного продукта</div>
                 <div>
@@ -176,6 +176,7 @@
                     <div class="comp-title">Ацетон 100u</div>
                     <div class="comp-formula">= Масло 50 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 50 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 50</div>
                 </div>
+                <!-- ИСПРАВЛЕНО: Полиакрилат и Серная кислота -->
                 <div class="component-box">
                     <div class="comp-title">Полиакрилат натрия 60u</div>
                     <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 15 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 15</div>
@@ -211,7 +212,8 @@
                 <div class="component-box"><div class="comp-title">Транексамовая <span class="multiplier">x2</span> по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color:#BF8C00">Серная</span> 30 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 30</div></div>
                 <div class="component-box"><div class="comp-title">Фторсерная кислота <span class="multiplier">x2</span> по 80u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color:#C6C8CC">Калий</span> 20 + <span class="reagent" style="--reagent-color:#BA85CC">Фтор</span> 20 + <span class="reagent" style="--reagent-color:#BF8C00">Серная</span> 20</div></div>
                 <div class="component-box"><div class="comp-title">Гидроксид натрия по 100u</div><div class="comp-formula">= Гидроксид 50 (<span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 25 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 <span class="hl-heat">&gt;310K</span>) + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 50</div></div>
-                <div class="component-box"><div class="comp-title">Бикаридин <span class="multiplier">x2</span> по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#731024">Инапровалин</span> 45 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 45</div></div>
+                <!-- ИСПРАВЛЕНО: Бикаридин 100u вместо x2 -->
+                <div class="component-box"><div class="comp-title">Бикаридин 100u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#731024">Инапровалин</span> 50 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 50</div></div>
                 <div class="section-label">Синтез конечного продукта</div>
                 <div>
                     <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Транексамовая</div><div class="synth-qty">25u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div></div>
@@ -233,7 +235,6 @@
     <!-- КАТЕГОРИЯ: ВИРУСЫ -->
     <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-v">Вирусы</div>
 
-    <!-- ИСПРАВЛЕННЫЙ КЛАСС -->
     <div class="grid-container">
         <div class="card card-k5" style="--card-color: #f59e0b;">
             <div class="card-header">
@@ -376,12 +377,12 @@
         </div>
     </div>
 
-    <!-- КАТЕГОРИЯ: РАЗНОЕ -->
+        <!-- КАТЕГОРИЯ: РАЗНОЕ -->
     <div class="category-header" style="color: var(--text-muted); margin-top: 30px;" id="cat-r">Разное</div>
 
     <div class="grid-container">
         
-        <!-- ПЛАСТИК -->
+        <!-- ПЛАСТИК (Перенесен сюда) -->
         <div class="card card-k2" style="--card-color: #a7b3d6;">
             <div class="card-header">
                 <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р1</span><h2 class="card-title">Пластик</h2></div>
@@ -405,10 +406,38 @@
             </div>
         </div>
 
-        <!-- Р2: НЕСТАБИЛЬНЫЙ МУТАГЕН -->
+        <!-- Р2: ЭТИЛРЕДОКСРАЗИН -->
+        <div class="card card-k2" style="--card-color: #00bfff;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #00bfff; color: #000;">Р2</span><h2 class="card-title">Этилредоксразин</h2></div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">1 = 90u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Диловен 30u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 10 + <span class="reagent" style="--reagent-color:#C6C8CC">Калий</span> 10 + <span class="reagent" style="--reagent-color:#364266">Кремний</span> 10</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Диловен</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Кислород</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Углерод</div><div class="synth-qty">30u</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 = 90u</div>
+                    <div class="final-desc">
+                        Нейтрализует действие алкоголя. Отнимает 12 секунд от опьянения за единицу. Лечит 1 яд за единицу.
+                    </div>
+                    <div class="dose-info">Доза: уточните в игре</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Р3: НЕСТАБИЛЬНЫЙ МУТАГЕН -->
         <div class="card card-k5" style="--card-color: #00FF04;">
             <div class="card-header">
-                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">Р2</span><h2 class="card-title">Нестабильный мутаген</h2></div>
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-yellow);color:var(--badge-text);">Р3</span><h2 class="card-title">Нестабильный мутаген</h2></div>
                 <div class="card-stats">30u/менз.<br><span class="big-green">3 = 90u</span></div>
             </div>
             <div class="card-content">
@@ -429,10 +458,10 @@
             </div>
         </div>
 
-        <!-- Р3: КОСМИЧЕСКИЙ ОЧИСТИТЕЛЬ -->
+        <!-- Р4: КОСМИЧЕСКИЙ ОЧИСТИТЕЛЬ -->
         <div class="card card-k2" style="--card-color: #06b6d4;">
             <div class="card-header">
-                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р3</span><h2 class="card-title">Космический очиститель</h2></div>
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color:var(--accent-cyan);">Р4</span><h2 class="card-title">Космический очиститель</h2></div>
                 <div class="card-stats">80u/менз.<br><span class="big-green">5 = 400u</span></div>
             </div>
             <div class="card-content">
@@ -452,7 +481,7 @@
     </div>
 
     <!-- КАТЕГОРИЯ: БОЕВЫЕ СТИМУЛЯТОРЫ -->
-    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-combat">Боевые стимуляторы и химикаты </div>
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-combat">Боевые стимуляторы</div>
 
     <div class="legal-warning">
         <b>⚠ Статья 43Х КЗ</b>
@@ -660,8 +689,8 @@
         
     </div>
 
-    <!-- КАТЕГОРИЯ: БОМБЫ -->
-    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-bombs">Бомбы !!ВАРКА И ХРАНЕНИЕ СУГУБО В КРИОСТАЗИСНЫХ МЕНЗУРКАХ!!</div>
+    <!-- КАТЕГОРИЯ: ПИРОТЕХНИКА -->
+    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-pyro">Пиротехника !!ВАРКА И ХРАНЕНИЕ СУГУБО В КРИОСТАЗИСНЫХ МЕНЗУРКАХ!!</div>
 
     <div class="legal-warning">
         <b>⚠ Статья 43Х КЗ</b>
@@ -727,6 +756,120 @@
                 </div>
             </div>
         </div>
+                <!-- CLF3 -->
+        <div class="card card-k3" style="--card-color: #a2ff00;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #a2ff00; color: #000;">Ф</span><h2 class="card-title">Фтор-хлоровая бомба (CLF3)</h2></div>
+                <div class="card-stats">100u партия<br><span class="big-green">1 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Синтез конечного продукта</div>
+                <div class="component-box">
+                    <div class="comp-title">Вход (100u)</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#BA85CC">Фтор</span> 75 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 25 <span class="hl-heat">&gt;370K</span></div>
+                </div>
+                <div class="final-output" style="border-color: var(--accent-red);">
+                    <div class="final-title" style="color: var(--accent-red);">Смертельно опасно</div>
+                    <div class="final-desc">
+                        При смешивании происходит мощнейший взрыв. Если заранее нагреть две мензурки, взрыв произойдет мгновенно при контакте.
+                        <br><br>
+                        <b style="color: var(--accent-red);">Урон:</b> 225 на тайле с сосудом, 150 на соседнем, 75 в радиусе 2 тайлов.
+                        <br><br>
+                        <b style="color: var(--accent-yellow);">Эффекты:</b> +6 воспламеняемости (при 20u), поджигает. Внутрь: 4 термич., 2 яда, 1 кислотн. за ед.
+                    </div>
+                    <div class="dose-info">Ввод: 10u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Флогистон -->
+        <div class="card card-k4" style="--card-color: #ff4500;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #ff4500; color: #fff;">Фл</span><h2 class="card-title">Флогистон</h2></div>
+                <div class="card-stats">90u/менз.<br><span class="big-green">1 = 90u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота 30u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Серная кислота</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Фосфор</div><div class="synth-qty">30u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Плазма</div><div class="synth-qty">30u</div></div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">1 = 90u</div>
+                    <div class="final-desc">
+                        При смешивании выделяет небольшое облако плазмы (скрубберы справятся).
+                        <br><br>
+                        <b style="color: var(--accent-yellow);">Эффекты:</b> +4 воспламеняемости (при 20u), поджигает. Внутрь: 6 термич. и 2 яды за ед.
+                    </div>
+                    <div class="dose-info">Ввод: 10–20u</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Фторсурфактант -->
+        <div class="card card-k2" style="--card-color: #00bfff;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #00bfff; color: #000;">ФС</span><h2 class="card-title">Фторсурфактант</h2></div>
+                <div class="card-stats">100u партия<br><span class="big-green">1 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Серная кислота 20u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20</div>
+                </div>
+                <div class="section-label">Синтез конечного продукта</div>
+                <div>
+                    <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Серная кислота</div><div class="synth-qty">20u</div></div>
+                    <div class="synth-step"><div class="synth-num">2</div><div class="synth-name">Углерод</div><div class="synth-qty">40u</div></div>
+                    <div class="synth-step"><div class="synth-num">3</div><div class="synth-name">Фтор</div><div class="synth-qty">40u</div></div>
+                </div>
+                <div class="final-output" style="border-color: var(--accent-cyan);">
+                    <div class="final-title" style="color: var(--accent-cyan);">Реакция с водой (1:1)</div>
+                    <div class="final-desc">
+                        При смешивании 1u Фторсурфактанта и 1u Воды образуется <b>пена</b>. Пена скользкая (нужна спец. обувь или медленная ходьба).
+                        <br><br>
+                        Все добавленные в смесь вещества будут постепенно вводиться тем, кто стоит в пене (защищает маска с баллоном).
+                    </div>
+                    <div class="dose-info">Для реакций</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Пенообразующий агент -->
+        <div class="card card-k5" style="--card-color: #c0c0c0;">
+            <div class="card-header">
+                <div class="card-title-wrapper"><span class="k-badge" style="background-color: #c0c0c0; color: #000;">ПА</span><h2 class="card-title">Пенообразующий агент</h2></div>
+                <div class="card-stats">100u партия<br><span class="big-green">1 = 100u</span></div>
+            </div>
+            <div class="card-content">
+                <div class="section-label">Промежуточные компоненты</div>
+                <div class="component-box">
+                    <div class="comp-title">Синтез пенообразователя</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 50 + <span class="reagent" style="--reagent-color:#c0c8ff">Литий</span> 50 → 100u</div>
+                </div>
+                <div class="section-label">Синтез металлической пены</div>
+                <div class="component-box">
+                    <div class="comp-title">Реакция (60u + 20u + 20u)</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#C0C0C0">Алюминий</span> или <span class="reagent" style="--reagent-color:#434B4D">Железо</span> 60u + <span class="reagent" style="--reagent-color:#5050FF">Фторсерная кислота</span> 20u + <span class="reagent" style="--reagent-color:#c0c0c0">Пенообразователь</span> 20u</div>
+                </div>
+                <div class="final-output">
+                    <div class="final-title">Металлические стены</div>
+                    <div class="final-desc">
+                        Создает металлические стены в небольшом радиусе (150 HP на разрушение). Алюминий и железо дают разный спрайт стены.
+                        <br><br>
+                        Пена скользкая. Не стойте в ней во время появления стен, если не хотите оказаться замурованным!
+                    </div>
+                    <div class="dose-info">Для реакций</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -745,6 +888,7 @@
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeButtonText(newTheme);
+        setTimeout(layoutMasonry, 50);
     });
 
     function updateExpButtonText(isExp) {
@@ -794,6 +938,7 @@
                 el.style.removeProperty('border-color');
             });
         }
+        setTimeout(layoutMasonry, 50);
     });
 
     // --- Боковая навигация по категориям ---
@@ -803,6 +948,44 @@
             if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });    
+
+    // --- Masonry (Кладка) для карточек ---
+    function layoutMasonry() {
+        const grids = document.querySelectorAll('.grid-container');
+        grids.forEach(grid => {
+            const cards = grid.querySelectorAll('.card');
+            if (cards.length === 0) return;
+
+            // Если карточек 3 или меньше, отключаем кладку (все встанут ровно в 1 ряд)
+            if (cards.length <= 3) {
+                grid.style.gridAutoRows = 'auto'; 
+                cards.forEach(card => {
+                    card.style.gridRowEnd = 'auto';
+                });
+                return;
+            }
+
+            // Включаем режим кладки для 4+ карточек
+            grid.style.gridAutoRows = '1px'; 
+            
+            cards.forEach(card => {
+                card.style.gridRowEnd = 'auto';
+            });
+            
+            const gap = parseInt(getComputedStyle(grid).gap) || 16;
+            cards.forEach(card => {
+                const height = card.getBoundingClientRect().height;
+                const rowSpan = Math.ceil((height + gap) / (1 + gap));
+                card.style.gridRowEnd = `span ${rowSpan}`;
+            });
+        });
+    }
+
+    window.addEventListener('load', layoutMasonry);
+    window.addEventListener('resize', () => {
+        clearTimeout(window.masonryTimeout);
+        window.masonryTimeout = setTimeout(layoutMasonry, 100);
+    });
 </script>
 
 </body>

@@ -170,11 +170,14 @@ body.exp-mode .text-white {
     font-size: 14px;
 }
 
-/* --- GRID LAYOUT (Колонки) --- */
+/* --- GRID LAYOUT --- */
 .grid-container {
-    column-count: 3; 
-    column-gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1px; /* Базовая высота для скрипта */
+    gap: 16px;
     margin-bottom: 30px;
+    align-items: start; /* Прижимает карточки к верху */
 }
 
 /* --- CARD STYLES --- */
@@ -183,14 +186,13 @@ body.exp-mode .text-white {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    display: inline-flex; 
+    display: flex; 
     flex-direction: column;
     width: 100%;
     box-shadow: 0 4px 6px var(--shadow-color);
     transition: background-color 0.3s, border-color 0.3s;
-    break-inside: avoid; 
-    margin-bottom: 16px;
-    position: relative; /* Для цветного слоя */
+    position: relative;
+    /* Убрали break-inside и margin-bottom, так как теперь используется gap */
 }
 
 /* Цветной слой фона в экспериментальном режиме */
@@ -496,9 +498,9 @@ body.exp-mode .card::after {
 
 /* Адаптив для узких экранов */
 @media (max-width: 1100px) {
-    .grid-container { column-count: 2; }    
+    .grid-container { grid-template-columns: repeat(2, 1fr); }    
     .side-nav { display: none; }
 }
 @media (max-width: 700px) {
-    .grid-container { column-count: 1; }
+    .grid-container { grid-template-columns: 1fr; }
 }
