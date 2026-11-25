@@ -23,12 +23,12 @@
 
 <nav class="side-nav" aria-label="Навигация по категориям">
     <div class="side-nav-label">Категории</div>
-    <button type="button" data-target="cat-k">Критически важные</button>
-    <button type="button" data-target="cat-v">Вирусы</button>
-    <button type="button" data-target="cat-s">Ситуативные</button>
-    <button type="button" data-target="cat-r">Разное</button>
-    <button type="button" data-target="cat-combat" class="nav-combat">Боевые стимуляторы</button>
-    <button type="button" data-target="cat-pyro" class="nav-combat">Пиротехника</button>
+    <button type="button" data-target="cat-k" style="border-left-color: #a855f7; color: var(--text-main);"><span class="nav-icon" style="color: #a855f7;">!</span> Критически важные</button>
+    <button type="button" data-target="cat-v" style="border-left-color: #10b981; color: var(--text-main);"><span class="nav-icon" style="color: #10b981;">☣</span> Вирусы</button>
+    <button type="button" data-target="cat-s" style="border-left-color: #f59e0b; color: var(--text-main);"><span class="nav-icon" style="color: #f59e0b;">½</span> Ситуативные</button>
+    <button type="button" data-target="cat-r" style="border-left-color: #8b949e; color: var(--text-main);"><span class="nav-icon" style="color: #8b949e;">♻</span> Разное</button>
+    <button type="button" data-target="cat-combat" style="border-left-color: #1d170f; color: var(--text-main);"><span class="nav-icon" style="color: #1d170f; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 16px;">&#x1F48A;&#xFE0E;</span> Наркотики и стимуляторы</button>
+    <button type="button" data-target="cat-bombs" style="border-left-color: #ef4444; color: var(--text-main);"><span class="nav-icon" style="color: #ef4444;">✹</span> Бомбы</button>
 </nav>
 
 <div class="container">
@@ -38,7 +38,7 @@
     </div>
 
     <!-- КАТЕГОРИЯ: КРИТИЧЕСКИ ВАЖНЫЕ -->
-    <div class="category-header" id="cat-k">Критически важные</div>
+    <div class="category-header" id="cat-k" style="color: #a855f7; border-bottom-color: #a855f7;"><span class="cat-icon">!</span> Критически важные</div>
 
     <div class="grid-container">
 
@@ -108,11 +108,11 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box"><div class="comp-title">Столовая соль по 40u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 20 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 <span class="hl-heat">&gt;370K</span></div></div>
                 <div class="component-box"><div class="comp-title">Аммиак по 40u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#A1E1FF">Азот</span> 10</div></div>
-                <div class="component-box"><div class="comp-title">Карбонат натрия <span class="multiplier">x2</span> по 80u</div><div class="comp-formula">= Соль 20 + Аммиак 20 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20</div></div>
+                <div class="component-box"><div class="comp-title">Карбонат натрия <span class="multiplier">x2</span> по 80u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#E0E0E0">Соль</span> 20 + <span class="reagent" style="--reagent-color:#77B58E">Аммиак</span> 20 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20</div></div>
                 <div class="component-box"><div class="comp-title">Фенол <span class="multiplier">x3</span> по 40u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20 <span class="hl-heat">&gt;310K</span></div></div>
                 <div class="component-box"><div class="comp-title">Дермалин <span class="multiplier">x2</span> по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#364266">Кремний</span> 15 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 15 + <span class="reagent" style="--reagent-color:#F5DA9A">Фосфор</span> 30 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30</div></div>
                 <div class="component-box"><div class="comp-title">Ферсилицит по 80u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#434B4D">Железо</span> 40 + <span class="reagent" style="--reagent-color:#434B4D">Кремний</span> 40 <span class="hl-heat">&gt;310K</span></div></div>
-                <div class="component-box"><div class="comp-title">Лепоразин по 160u (в кувшине)</div><div class="comp-formula">= Ферсилицит 80 + <span class="reagent" style="--reagent-color:#7E009E">Плазма</span> 1 + <span class="reagent" style="--reagent-color:#B05B3C">Медь</span> 80</div></div>
+                <div class="component-box"><div class="comp-title">Лепоразин по 160u (в кувшине)</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#8899aa">Ферсилицит</span> 80 + <span class="reagent" style="--reagent-color:#7E009E">Плазма</span> 1 + <span class="reagent" style="--reagent-color:#B05B3C">Медь</span> 80</div></div>
                 <div class="section-label">Синтез конечного продукта в кувшине</div>
                 <div>
                     <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Карбонат натрия</div><div class="synth-qty">50u <span class="synth-sep">|</span> <span class="synth-jug">50u</span></div></div>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Ацетон 100u</div>
-                    <div class="comp-formula">= Масло 50 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 50 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 50</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Масло</span> 50 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 50 + <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 50</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Полиакрилат натрия 60u</div>
@@ -207,7 +207,7 @@
                 <div class="component-box"><div class="comp-title">Инапровалин <span class="multiplier">x3</span> по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 30 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30</div></div>
                 <div class="component-box"><div class="comp-title">Транексамовая <span class="multiplier">x2</span> по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#731024">Инапровалин</span> 30 + <span class="reagent" style="--reagent-color:#BF8C00">Серная</span> 30 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 30</div></div>
                 <div class="component-box"><div class="comp-title">Фторсерная кислота <span class="multiplier">x2</span> по 80u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 20 + <span class="reagent" style="--reagent-color:#C6C8CC">Калий</span> 20 + <span class="reagent" style="--reagent-color:#BA85CC">Фтор</span> 20 + <span class="reagent" style="--reagent-color:#BF8C00">Серная</span> 20</div></div>
-                <div class="component-box"><div class="comp-title">Гидроксид натрия по 100u</div><div class="comp-formula">= Гидроксид 50 (<span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 25 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 <span class="hl-heat">&gt;310K</span>) + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 50</div></div>
+                <div class="component-box"><div class="comp-title">Гидроксид натрия по 100u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#c4e5ea">Гидроксид</span> 50 (<span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 25 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 <span class="hl-heat">&gt;310K</span>) + <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 50</div></div>
                 <div class="component-box"><div class="comp-title">Бикаридин 100u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#731024">Инапровалин</span> 50 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 50</div></div>
                 <div class="section-label">Синтез конечного продукта</div>
                 <div>
@@ -227,7 +227,7 @@
     </div>
 
     <!-- КАТЕГОРИЯ: ВИРУСЫ -->
-    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-v">Вирусы</div>
+    <div class="category-header" id="cat-v" style="color: #10b981; border-bottom-color: #10b981;"><span class="cat-icon">☣</span> Вирусы</div>
 
     <div class="grid-container">
         <div class="card card-k5" style="--card-color: #f59e0b;">
@@ -299,7 +299,7 @@
     </div>
 
     <!-- КАТЕГОРИЯ: СИТУАТИВНЫЕ -->
-    <div class="category-header" style="color: var(--accent-yellow); margin-top: 30px;" id="cat-s">Ситуативные</div>
+    <div class="category-header" id="cat-s" style="color: #f59e0b; border-bottom-color: #f59e0b;"><span class="cat-icon">½</span> Ситуативные</div>
 
     <div class="grid-container">
         <div class="card card-k5" style="--card-color: #f59e0b;">
@@ -372,7 +372,7 @@
     </div>
 
     <!-- КАТЕГОРИЯ: РАЗНОЕ -->
-    <div class="category-header" style="color: var(--text-muted); margin-top: 30px;" id="cat-r">Разное</div>
+    <div class="category-header" id="cat-r" style="color: #8b949e; border-bottom-color: #8b949e;"><span class="cat-icon">♻</span> Разное</div>
 
     <div class="grid-container">
         
@@ -386,7 +386,7 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box"><div class="comp-title">Масло по 90u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 30 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 30</div></div>
                 <div class="component-box"><div class="comp-title">Серная кислота по 30u</div><div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 10 + <span class="reagent" style="--reagent-color:#FFF385">Сера</span> 10 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 20</div></div>
-                <div class="component-box"><div class="comp-title">Пепел по 30u</div><div class="comp-formula">= Сжигание масла</div></div>
+                <div class="component-box"><div class="comp-title">Пепел по 30u</div><div class="comp-formula">= Сжигание <span class="reagent" style="--reagent-color:#A76B1C">масла</span></div></div>
                 <div class="section-label">Синтез — 10 ШТУК</div>
                 <div>
                     <div class="synth-step"><div class="synth-num">1</div><div class="synth-name">Масло</div><div class="synth-qty">50u</div></div>
@@ -474,12 +474,12 @@
         </div>
     </div>
 
-    <!-- КАТЕГОРИЯ: БОЕВЫЕ СТИМУЛЯТОРЫ -->
-    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-combat">Боевые стимуляторы</div>
+    <!-- КАТЕГОРИЯ: НАРКОТИКИ И СТИМУЛЯТОРЫ -->
+    <div class="category-header" id="cat-combat" style="color: #1d170f; border-bottom-color: #1d170f;"><span class="nav-icon" style="color: #1d170f; display: inline-flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 16px;">&#x1F48A;&#xFE0E;</span> Наркотики и стимуляторы</div>
 
     <div class="legal-warning">
         <b>⚠ Статья 43Х КЗ</b>
-        <span>Изготовление, хранение и распространение препаратов из этой категории приравнивается к производству боевых стимуляторов и карается тюремным сроком ( по крайней мере вопросы точно появяться ).</span>
+        <span>Изготовление, хранение и распространение препаратов из этой категории приравнивается к производству боевых стимуляторов и карается тюремным сроком.</span>
     </div>
 
     <div class="grid-container">
@@ -530,7 +530,7 @@
                 <div class="section-label">Промежуточные компоненты</div>
                 <div class="component-box">
                     <div class="comp-title">Эфедрин 100u</div>
-                    <div class="comp-formula">= 1 мензурка по рецепту Б1 (Масло 25 + Диэтиламин 25 + Водород 25 + Сахар 25)</div>
+                    <div class="comp-formula">= 1 мензурка по рецепту Б1 (<span class="reagent" style="--reagent-color:#A76B1C">Масло</span> 25 + <span class="reagent" style="--reagent-color:#d4d4d4">Диэтиламин</span> 25 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 25)</div>
                 </div>
                 <div class="section-label">Синтез конечного продукта (>370K)</div>
                 <div>
@@ -563,18 +563,18 @@
                 <div class="section-label">1. Метамфетамин — 100u</div>
                 <div class="component-box">
                     <div class="comp-title">Эфедрин 25u</div>
-                    <div class="comp-formula">= 1 мензурка по рецепту Б2 (Масло 25 + Диэтиламин 25 + Водород 25 + Сахар 25)</div>
+                    <div class="comp-formula">= 1 мензурка по рецепту Б2 (<span class="reagent" style="--reagent-color:#A76B1C">Масло</span> 25 + <span class="reagent" style="--reagent-color:#d4d4d4">Диэтиламин</span> 25 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 + <span class="reagent" style="--reagent-color:#FFFFFF">Сахар</span> 25)</div>
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Варка метамфетамина</div>
-                    <div class="comp-formula">= Эфедрин 25 + Йод 25 + Фосфор 25 + Углерод 25 → 100u <span class="hl-heat">&gt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#ffcc66">Эфедрин</span> 25 + <span class="reagent" style="--reagent-color:#9400D3">Йод</span> 25 + <span class="reagent" style="--reagent-color:#F5DA9A">Фосфор</span> 25 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 25 → 100u <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="section-label">2. Эпинефрин — x2 по 80u</div>
                 <div class="component-box">
                     <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Сварочное топливо</span> 15 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 5 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 5 → 25u масла</div>
                 </div>
                 <div class="component-box">
-                    <div class="comp-formula">= Масло 25u + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 15 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 10 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 → 80u эпинефрина <span class="hl-heat">&gt;370K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A76B1C">Масло</span> 25u + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 10 + <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 25 + <span class="reagent" style="--reagent-color:#c4f5ff">Кислород</span> 15 + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 10 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 20 → 80u <span class="reagent" style="--reagent-color:#ffaacc">эпинефрина</span> <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="section-label">3. Дифенгидрамин — x2 по 60u</div>
                 <div class="component-box">
@@ -587,7 +587,7 @@
                     <div class="comp-formula">= <span class="reagent" style="--reagent-color:#A7B3D6">Натрий</span> 10 + <span class="reagent" style="--reagent-color:#A2FF00">Хлор</span> 10 → 20u <span class="hl-heat">&gt;370K</span></div>
                 </div>
                 <div class="component-box">
-                    <div class="comp-formula">= Диэтиламин 20u + Масло 20u + Соль 20u + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20u + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 20u <span class="hl-heat">&gt;377.59K, &lt;520K</span></div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#d4d4d4">Диэтиламин</span> 20u + <span class="reagent" style="--reagent-color:#A76B1C">Масло</span> 20u + <span class="reagent" style="--reagent-color:#E0E0E0">Соль</span> 20u + <span class="reagent" style="--reagent-color:#22282B">Углерод</span> 20u + <span class="reagent" style="--reagent-color:#d4d4d4">Этанол</span> 20u <span class="hl-heat">&gt;377.59K, &lt;520K</span></div>
                 </div>
                 <div class="section-label">4. Синтез конечного продукта — x3 (по 30u)</div>
                 <div>
@@ -627,7 +627,7 @@
                 </div>
                 <div class="component-box">
                     <div class="comp-title">Токсин майндбрейкер 90u</div>
-                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#364266">Кремний</span> 30 + Диловен 30 → 90u</div>
+                    <div class="comp-formula">= <span class="reagent" style="--reagent-color:#CCCCCC">Водород</span> 30 + <span class="reagent" style="--reagent-color:#364266">Кремний</span> 30 + <span class="reagent" style="--reagent-color:#a8c8e0">Диловен</span> 30 → 90u</div>
                 </div>
                 <div class="section-label">Синтез конечного продукта</div>
                 <div>
@@ -682,12 +682,12 @@
         </div>
     </div>
 
-    <!-- КАТЕГОРИЯ: ПИРОТЕХНИКА -->
-    <div class="category-header" style="color: var(--accent-red); margin-top: 30px;" id="cat-pyro">Пиротехника !!ВАРКА И ХРАНЕНИЕ СУГУБО В КРИОСТАЗИСНЫХ МЕНЗУРКАХ!!</div>
+    <!-- КАТЕГОРИЯ: БОМБЫ -->
+    <div class="category-header" id="cat-pyro" style="color: #ef4444; border-bottom-color: #ef4444;"><span class="nav-icon" style="color: #ef4444;">✹</span> Бомбы !!ВАРКА И ХРАНЕНИЕ СУГУБО В КРИОСТАЗИСНЫХ МЕНЗУРКАХ!!</div>
 
     <div class="legal-warning">
         <b>⚠ Статья 43Х КЗ</b>
-        <span>Изготовление взрывчатых веществ без разрешения приравнивается к терроризму и карается тюремным сроком. </span>
+        <span>Изготовление взрывчатых веществ без разрешения приравнивается к терроризму и карается тюремным сроком.</span>
     </div>
 
     <div class="grid-container">

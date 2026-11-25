@@ -159,15 +159,15 @@ body.exp-mode .text-white {
     gap: 10px;
     font-size: 20px;
     font-weight: bold;
-    color: var(--highlight-green);
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid;
 }
 
-.category-header::before {
-    content: "▼";
-    font-size: 14px;
+.cat-icon {
+    font-size: 24px;
+    font-weight: normal;
+    margin-right: 5px;
 }
 
 /* --- GRID LAYOUT --- */
@@ -481,25 +481,29 @@ body.exp-mode .card::after {
     color: var(--text-main);
     background-color: var(--bg-comp);
     border: 1px solid var(--border-color);
+    border-left-width: 3px;
     border-radius: 6px;
     padding: 6px 12px;
     cursor: pointer;
     text-align: left;
     white-space: nowrap;
     transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    display: flex;
+    align-items: center;
 }
 .side-nav button:hover {
     background-color: var(--bg-synth-step);
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
+    border-top-color: var(--accent-cyan);
+    border-right-color: var(--accent-cyan);
+    border-bottom-color: var(--accent-cyan);
 }
-.side-nav button.nav-combat {
-    border-color: rgba(239, 68, 68, 0.45);
-    color: #ffb3b3;
-}
-.side-nav button.nav-combat:hover {
-    color: var(--accent-red);
-    border-color: var(--accent-red);
+.nav-icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    margin-right: 8px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Пометка про статью 43Х КЗ */
